@@ -1,0 +1,14 @@
+go here
+/home/ravi/miniconda3/envs/ulmfitTest/lib/python3.10/site-packages/fastinference/inference/text.python3
+
+add
+
+# Cell
+@patch
+def intrinsic_attentionNEW(x:TextLearner, text:str, class_id:int=None, **kwargs):
+    "Shows the `intrinsic attention for `text`, optional `class_id`"
+    if isinstance(x, LMLearner): raise Exception("Language models are not supported")
+    text, attn = _intrinsic_attention(x, text, class_id)
+    # textandattndf = pd.DataFrame({'text':text.split(), 'attn':to_np(attn)})
+    # print("text and attn:", text.split(), to_np(attn))
+    return text.split(), to_np(attn)
