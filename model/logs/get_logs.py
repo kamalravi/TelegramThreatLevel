@@ -1,25 +1,31 @@
 # logs
 import logging
+import os
 
-def logger(log_dir_fname):
+def setup_logger(log_dir_fname):
+    # Ensure directory exists
+    log_dir = os.path.dirname(log_dir_fname)
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+
+    # Create logger object
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
 
-    # formatter = logging.Formatter('%(asctime)s | %(name)s |  %(levelname)s: %(message)s')
-    # FORMAT = "[%(filename)s:%(lineno)s - %(funcName)20s() ] %(message)s"
-    formatter = logging.Formatter('%(asctime)s | %(filename)s: %(lineno)s: %(funcName)s() |  %(levelname)s: %(message)s')
+    # Create a formatter with the desired format
+    formatter = logging.Formatter('%(asctime)s | %(filename)s: %(lineno)s: %(funcName)s() | %(levelname)s: %(message)s')
 
-    # log_dir_fname ideally describes the dataPrep/model/KFold; all in one string
-    # log_fname = './logs/' + taskName + '.log'
-    log_fname = log_dir_fname
-    file_handler = logging.FileHandler(log_fname)
+    # Set up file handler for logging to a file
+    file_handler = logging.FileHandler(log_dir_fname)
     file_handler.setLevel(logging.INFO)
     file_handler.setFormatter(formatter)
 
+    # Set up stream handler for logging to the console
     stream_handler = logging.StreamHandler()
     stream_handler.setLevel(logging.INFO)
     stream_handler.setFormatter(formatter)
 
+    # Add both handlers to the logger
     logger.addHandler(file_handler)
     logger.addHandler(stream_handler)
 

@@ -250,7 +250,8 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
     # Then test it on the test_data and save the predictions and scores
     if model_train == 1:
         model_st = time.time()
-        yLabel = AllTrainData['label']
+        yLabel = AllTrainData['labels']
+        
         # del AllTrainData # to clear memory
 
         logger.info("=========================================================")  
@@ -286,9 +287,9 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             return weighted_f1_metric.compute(predictions=predictions, references=labels, average="weighted")
 
         # Before you start training your model, create a map of the expected ids to their labels with id2label and label2id:
-        id2label = {0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5"}
+        id2label = {1: "1", 2: "2", 3: "3"}
         logger.info("id2label is \n {}".format(id2label))
-        label2id = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5}
+        label2id = {'1': 1, '2': 2, '3': 3}
 
         # compute weighted loss
         logger.info("======== compute weighted loss =========")
@@ -309,7 +310,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
         # from epoch 0
         # multi class and single label; not problem_type="multi_label_classification"
         model = AutoModelForSequenceClassification.from_pretrained(
-            model_type, num_labels=6, id2label=id2label, label2id=label2id
+            model_type, num_labels=3, id2label=id2label, label2id=label2id
         )
         
         # # path to the model checkpoint from the 36th epoch
@@ -345,7 +346,9 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
 
         class CustomTrainer(Trainer):
             def compute_loss(self, model, inputs, return_outputs=False):
+                logger.info("inputs are \n {}".format(inputs))
                 labels = inputs.get("labels")
+                logger.info("labels are \n {}".format(labels))
                 # forward pass
                 outputs = model(**inputs)
                 logits = outputs.get("logits")

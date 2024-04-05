@@ -25,7 +25,7 @@ from transformers import AutoModelForSequenceClassification, TrainingArguments, 
 import torch
 
 # custom built functions
-from logs.get_logs import logger
+from logs.get_logs import setup_logger
 from dataPrep.get_data_fold import data_read
 from models.TFs.Transformers_model import BatchTokenize, BatchTokenizeCombine, Transformers_train, Transformers_predict
 from utils.utils import set_seed
@@ -48,6 +48,8 @@ def getModelType(model_select):
 if __name__=="__main__":
     
     ## inputs
+    ite = 1
+
     # Choose model
     model_select = "OpenAIGPT2" # Options: RoBERTa, Longformer, OpenAIGPT2
     model_type = getModelType(model_select)
@@ -55,17 +57,17 @@ if __name__=="__main__":
     # Choose
     model_tokenize=0
     TokenizeCombine=0
-    model_train=0
-    model_predict=1
+    model_train=1
+    model_predict=0
     
     # logger
-    task = "_Tokenize_Train_Test" # Train Test
+    task = "_Tokenize_Train_Test_"+str(ite) # Train Test
     taskName = model_select + task
-    root_dir = '/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/DataModelsResults/'
-    model_folder = root_dir + "/Results/" + model_select + "/"
+    root_dir = '/home/ravi/raviProject/DataModelsResults/'
+    model_folder = root_dir + "/Results/" + model_select + "_" + str(ite) + "/"
     log_dir_fname = model_folder + taskName +".log"
     print("log_dir_fname: {}".format(log_dir_fname))
-    logger = logger(log_dir_fname=log_dir_fname)
+    logger = setup_logger(log_dir_fname=log_dir_fname)
 
     logger.info("=========================================================")  
     logger.info("==================== New execution ======================")
@@ -78,24 +80,21 @@ if __name__=="__main__":
         # inputs
         logger.info("Get inputs data")
         # Load data. Get K-Fold data. Save 5 fold indices (80% train, 20% test)
-        all_train_data = pd.read_json("/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/Annotate/Sample_10000_For_Training.json", orient='records')
-        all_train_data['openAI-classification'] = all_train_data['openAI-classification'].astype('int64')
+        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/V1_Labeled_300_sampled.json", orient='records')
+        all_train_data['FinalLabel'] = all_train_data['FinalLabel'].astype('int64')
         logger.info("all_train_data.shape {}".format(all_train_data.shape))
 
         # format
-        all_train_data = all_train_data.rename(columns={"openAI-classification": "label", "reply": "article"})
+        all_train_data = all_train_data.rename(columns={"FinalLabel": "labels"})
 
         # Sample the DataFrame with replacement
-        n=2000
-        val_data = all_train_data.sample(n=n, random_state=42, replace=False)
+        # n=2000
+        val_data = all_train_data.sample(frac=0.2, random_state=42, replace=False)
         # Drop the sampled rows from the DataFrame
         train_data = all_train_data.drop(val_data.index)
 
-        train_data = train_data[['article','label']]
-        val_data = val_data[['article','label']]
-
-        train_data = train_data.rename(columns={'article': 'text'})
-        val_data = val_data.rename(columns={'article': 'text'})
+        train_data = train_data[['text','labels']]
+        val_data = val_data[['text','labels']]
         
         train_data.reset_index(drop=True, inplace=True)
         val_data.reset_index(drop=True)
@@ -107,24 +106,23 @@ if __name__=="__main__":
         logger.info("Execution time {} seconds".format(time.time()-execution_st))
 
     elif model_train: 
+        # only for class_weights. we already tokenized our train and val data
         # inputs
         logger.info("Get inputs data")
         # Load data. Get K-Fold data. Save 5 fold indices (80% train, 20% test)
-        all_train_data = pd.read_json("/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/Annotate/Sample_10000_For_Training.json", orient='records')
-        all_train_data['openAI-classification'] = all_train_data['openAI-classification'].astype('int64')
+        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/V1_Labeled_300_sampled.json", orient='records')
+        all_train_data['FinalLabel'] = all_train_data['FinalLabel'].astype('int64')
         logger.info("all_train_data.shape {}".format(all_train_data.shape))
-
         # format
-        all_train_data = all_train_data.rename(columns={"openAI-classification": "label", "reply": "article"})
+        all_train_data = all_train_data.rename(columns={"FinalLabel": "labels"})
         # Sample the DataFrame with replacement
-        n=2000
-        val_data = all_train_data.sample(n=n, random_state=42, replace=False)
+        val_data = all_train_data.sample(frac=0.2, random_state=42, replace=False)
         # Drop the sampled rows from the DataFrame
         train_data = all_train_data.drop(val_data.index)
-        train_data = train_data[['article','label']]
-        train_data = train_data.rename(columns={'article': 'text'})
+        train_data = train_data[['text','labels']]
+        val_data = val_data[['text','labels']]
         train_data.reset_index(drop=True, inplace=True)
-
+        val_data.reset_index(drop=True)
         # class_weights = [1.7343, 1.5799, 0.5585]
 
         # # Train
