@@ -107,8 +107,28 @@ if __name__=="__main__":
         logger.info("Execution time {} seconds".format(time.time()-execution_st))
 
     elif model_train: 
+        # only for class_weights. we already tokenized our train and val data
+        # inputs
+        logger.info("Get inputs data")
+        # Load data. Get K-Fold data. Save 5 fold indices (80% train, 20% test)
+        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/V1_Labeled_300_sampled.json", orient='records')
+        all_train_data = all_train_data.drop(columns=['label'])
+        all_train_data['FinalLabel'] = all_train_data['FinalLabel'].astype('int64')
+        logger.info("all_train_data.shape {}".format(all_train_data.shape))
+        # format
+        all_train_data = all_train_data.rename(columns={"FinalLabel": "label"})
+        # Sample the DataFrame with replacement
+        val_data = all_train_data.sample(frac=0.2, random_state=42, replace=False)
+        # Drop the sampled rows from the DataFrame
+        train_data = all_train_data.drop(val_data.index)
+        train_data = train_data[['text','label']]
+        val_data = val_data[['text','label']]
+        train_data.reset_index(drop=True, inplace=True)
+        val_data.reset_index(drop=True)
+        # class_weights = [1.7343, 1.5799, 0.5585]
+
         # # Train
-        Transformers_train(logger, model_select, model_train, model_type, model_folder)
+        Transformers_train(logger, model_select, model_train, model_type, model_folder, train_data)
 
         # end
         logger.info("Execution time {} seconds".format(time.time()-execution_st))
