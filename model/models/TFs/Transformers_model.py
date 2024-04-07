@@ -298,7 +298,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
         # multi class and single label; not problem_type="multi_label_classification"
         model = AutoModelForSequenceClassification.from_pretrained(
             model_type, num_labels=3, id2label=id2label, label2id=label2id
-        )
+        ).to("cuda")
         
         # # path to the model checkpoint from the 36th epoch
         # model_checkpoint = "/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/DataModelsResults/Results/OpenAIGPT2/checkpoint-288000/"
