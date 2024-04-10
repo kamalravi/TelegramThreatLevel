@@ -1,7 +1,13 @@
-# warnings
+import warnings
+
+# Suppress FutureWarning and DeprecationWarning
 from warnings import simplefilter
 simplefilter("ignore", category=FutureWarning)
 simplefilter("ignore", category=DeprecationWarning)
+
+# Suppress all other warnings
+warnings.filterwarnings("ignore", category=Warning)
+
 
 # import libraries
 seed=42
@@ -45,15 +51,6 @@ import glob
 from natsort import natsorted
 
 # Functions
-
-def dataTruncationTEXT(texts):
-    truncated_texts = []
-    for text in texts:
-        if len(text.split()) > 4000:
-            text = ' '.join(text.split()[:4000])
-        truncated_texts.append(text)
-
-    return truncated_texts
 
 def Transformers_predict(logger, model_select, model_predict, test_data, model_folder):
     ## Load trained model and predict
@@ -139,20 +136,6 @@ def Transformers_predict(logger, model_select, model_predict, test_data, model_f
         logger.info("prediction time {} seconds".format(time.time()-predict_st))
 
 
-def dataTruncation(data):
-    data['totalwords'] = data['text'].str.split().str.len()
-    data_list = []
-    for index, row in data.iterrows():
-        if row["totalwords"] >= 4000:
-            # print(row['text'])
-            row['text'] = ' '.join(row['text'].split()[:4000])
-            # print(row['text'])
-            # break
-        data_list.append([row['text'], row['label']])    
-    data=pd.DataFrame(data_list, columns=['text','label'])
-    
-    return data
-
 def BatchTokenize(logger, model_tokenize, model_type, model_select, model_folder, train_data, val_data):
 
     if model_tokenize==1:
@@ -168,12 +151,14 @@ def BatchTokenize(logger, model_tokenize, model_type, model_select, model_folder
             tokenizer.padding_side = "left"
             # Define PAD Token = EOS Token = 50256
             tokenizer.pad_token = tokenizer.eos_token
+        
         # function to tokenize text and truncate seq to be no longer than maximum input length:
         def preprocess_function(batch):
             tokenized_input = tokenizer(batch["text"], truncation=True)
             return tokenized_input
+        
         def tokenize_dataset(AllTrainData):
-            tokenized_dataset = AllTrainData.map(preprocess_function, num_proc=1, batched=True, batch_size=1)
+            tokenized_dataset = AllTrainData.map(preprocess_function, num_proc=1, batched=True, batch_size=5)
             # tokenized_dataset.set_format('numpy', columns=['input_ids', 'attention_mask', 'labels']) # ['text', 'label', 'input_ids', 'attention_mask']
             return tokenized_dataset
 
@@ -250,6 +235,9 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
     # Then test it on the test_data and save the predictions and scores
     if model_train == 1:
         model_st = time.time()
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        logger.info("device is {}".format(device))
         
         # del AllTrainData # to clear memory
 
@@ -285,20 +273,21 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             predictions = np.argmax(predictions, axis=1)
             return weighted_f1_metric.compute(predictions=predictions, references=labels, average="weighted")
 
-        # Before you start training your model, create a map of the expected ids to their labels with id2label and label2id:
-        id2label = {1: "1", 2: "2", 3: "3"}
-        logger.info("id2label is \n {}".format(id2label))
-        label2id = {'1': 1, '2': 2, '3': 3}
+        # # Before you start training your model, create a map of the expected ids to their labels with id2label and label2id:
+        # id2label = {0: "0", 1: "1", 2: "2"}
+        # logger.info("id2label is \n {}".format(id2label))
+        # label2id = {'0': 0, '1': 1, '2': 2}
             
         # train
 
         logger.info("========Training Model=========")
 
+        logger.info("========Select Model=========")
         # from epoch 0
         # multi class and single label; not problem_type="multi_label_classification"
         model = AutoModelForSequenceClassification.from_pretrained(
-            model_type, num_labels=3, id2label=id2label, label2id=label2id
-        ).to("cuda")
+            model_type, num_labels=3
+        )
         
         # # path to the model checkpoint from the 36th epoch
         # model_checkpoint = "/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/DataModelsResults/Results/OpenAIGPT2/checkpoint-288000/"
@@ -312,7 +301,12 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             # fix model padding token id
             model.config.pad_token_id = model.config.eos_token_id
 
-        batch_size = 1
+        model.to(device)
+
+        logger.info("======== Model args =========")
+
+        batch_size = 4
+
         training_args = TrainingArguments(
             output_dir=model_folder,
             seed=seed,
@@ -320,16 +314,21 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             per_device_train_batch_size=batch_size, # to avoid OOM
             gradient_accumulation_steps=1, # to avoid OOM
             per_device_eval_batch_size=batch_size, # to avoid OOM
-            num_train_epochs=5,
+            num_train_epochs=1,
             weight_decay=0.01,
             evaluation_strategy="steps",
             save_strategy="steps",
             load_best_model_at_end=True,
             save_total_limit=2,
-            save_steps=1000,
-            eval_steps=1000,
-            fp16=True, # to avoid OOM
+            save_steps=1,
+            eval_steps=1,
+            # fp16=True, # to avoid OOM # remove to run on GTX 1080 CARD
         )
+
+        # Set CUDA_LAUNCH_BLOCKING environment variable
+        # os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
+
+        logger.info("======== Trainer =========")
 
         trainer = Trainer(
             model=model,
@@ -341,8 +340,12 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             compute_metrics=compute_metrics,
         )
 
+        logger.info("======== trainer.train() =========")
+
         trainer.train()
+        
         logger.info("========Saving Model=========")
+        
         trainer.save_model()
         
         logger.info("train time {} seconds".format(time.time()-model_st))

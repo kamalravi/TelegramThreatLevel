@@ -244,13 +244,12 @@ def BatchTokenizeCombine(logger, model_folder):
         logger.info("Combine Tokens n time {} seconds".format(time.time()-tokag_st))
 
 
-def Transformers_train(logger,  model_select, model_train, model_type, model_folder, AllTrainData):
+def Transformers_train(logger,  model_select, model_train, model_type, model_folder):
 
     # and train a model on the all_train_data and save the scores
     # Then test it on the test_data and save the predictions and scores
     if model_train == 1:
         model_st = time.time()
-        yLabel = AllTrainData['label']
         
         # del AllTrainData # to clear memory
 
@@ -290,18 +289,6 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
         id2label = {1: "1", 2: "2", 3: "3"}
         logger.info("id2label is \n {}".format(id2label))
         label2id = {'1': 1, '2': 2, '3': 3}
-
-        # compute weighted loss
-        logger.info("======== compute weighted loss =========")
-        class_weights = compute_class_weight(
-                                                class_weight = "balanced",
-                                                classes = np.unique(yLabel),
-                                                y = yLabel                                                    
-                                            )
-        class_weights=torch.tensor(class_weights,dtype=torch.float)
-        class_weights = class_weights.cuda()
-        logger.info("class_weights is \n {}".format(class_weights))
-        # logger.info("class_weights.is_cuda is \n {}".format(class_weights.is_cuda))
             
         # train
 
@@ -311,7 +298,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
         # multi class and single label; not problem_type="multi_label_classification"
         model = AutoModelForSequenceClassification.from_pretrained(
             model_type, num_labels=3, id2label=id2label, label2id=label2id
-        )
+        ).to("cuda")
         
         # # path to the model checkpoint from the 36th epoch
         # model_checkpoint = "/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/DataModelsResults/Results/OpenAIGPT2/checkpoint-288000/"
@@ -344,20 +331,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             fp16=True, # to avoid OOM
         )
 
-        class CustomTrainer(Trainer):
-            def compute_loss(self, model, inputs, return_outputs=False):
-                # logger.info("inputs are \n {}".format(inputs))
-                labels = inputs.get("labels")
-                # logger.info("labels are \n {}".format(labels))
-                # forward pass
-                outputs = model(**inputs)
-                logits = outputs.get("logits")
-                # compute custom loss (suppose one has 3 labels with different weights)
-                loss_fct = nn.CrossEntropyLoss(weight=class_weights,reduction='mean')
-                loss = loss_fct(logits.view(-1, self.model.config.num_labels), labels.view(-1))
-                return (loss, outputs) if return_outputs else loss
-
-        trainer = CustomTrainer(
+        trainer = Trainer(
             model=model,
             args=training_args,
             train_dataset=tokenized_AllTrainData["train"],
