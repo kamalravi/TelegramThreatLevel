@@ -52,7 +52,7 @@ from natsort import natsorted
 
 # Functions
 
-def Transformers_predict(logger, model_select, model_predict, test_data, model_folder):
+def Transformers_predict(logger, model_select, model_predict, test_data, model_folder, fileName):
     ## Load trained model and predict
     if model_predict == 1:
         logger.info("=========================================================")  
@@ -91,6 +91,7 @@ def Transformers_predict(logger, model_select, model_predict, test_data, model_f
         # GPU prediction
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model.to(device)
+
         y_pred=[]
         for count, chunk in enumerate(np.array_split(test_data, 1000)):
             print(count, chunk.shape)            
@@ -112,26 +113,33 @@ def Transformers_predict(logger, model_select, model_predict, test_data, model_f
         logger.info("Saving Predictions along with test_data_yTrue in json format")
         test_data_yTrue_yPred = test_data.copy()
         test_data_yTrue_yPred['y_pred'] = y_pred
-        test_data_yTrue_yPred.to_json(model_folder+"/test_data_yTrue_yPred.json", orient='records')
         
-        # metrics
-        logger.info("==========metrics===========")
-        target_names = ['0', '1', '2', '3', '4', '5']
-        classi_report = classification_report(test_data.label, y_pred, target_names=target_names, digits=4)
-        logger.info("classi_report:\n{}".format(classi_report))
+        labeledFile = fileName.split('.')[0] + "_yPred_" + model_select +  ".json"
 
-        logger.info("confusion_matrix:\n {}".format(confusion_matrix(test_data.label, y_pred)))
+        test_data_yTrue_yPred.to_json(labeledFile, orient='records')
 
-        logger.info("Testing f1_weighted score: {}".format(f1_score(test_data.label, y_pred, average='weighted')))
-        logger.info("Plot ConfusionMatrix")
-        cm = confusion_matrix(test_data.label, y_pred)
-        # fig
-        fig, ax = plt.subplots(figsize=(3,3))
-        display_labels=target_names
-        SVM_ConfusionMatrix = sns.heatmap(cm, annot=True, xticklabels=display_labels, yticklabels=display_labels, cmap='Blues', ax=ax, fmt='d')
-        plt.yticks(va="center")
-        plt.xticks(va="center")
-        fig.savefig(model_folder+'/ConfusionMatrix.png', format='png', dpi=1200, bbox_inches='tight')
+        logger.info("test_data_yPred is \n {}".format(test_data_yTrue_yPred.shape))
+
+        # test_data_yTrue_yPred.to_json(model_folder+"/test_data_yTrue_yPred.json", orient='records')
+        
+        # # metrics
+        # logger.info("==========metrics===========")
+        # target_names = ['0', '1', '2']
+        # classi_report = classification_report(test_data.label, y_pred, target_names=target_names, digits=4)
+        # logger.info("classi_report:\n{}".format(classi_report))
+
+        # logger.info("confusion_matrix:\n {}".format(confusion_matrix(test_data.label, y_pred)))
+
+        # logger.info("Testing f1_weighted score: {}".format(f1_score(test_data.label, y_pred, average='weighted')))
+        # logger.info("Plot ConfusionMatrix")
+        # cm = confusion_matrix(test_data.label, y_pred)
+        # # fig
+        # fig, ax = plt.subplots(figsize=(3,3))
+        # display_labels=target_names
+        # SVM_ConfusionMatrix = sns.heatmap(cm, annot=True, xticklabels=display_labels, yticklabels=display_labels, cmap='Blues', ax=ax, fmt='d')
+        # plt.yticks(va="center")
+        # plt.xticks(va="center")
+        # fig.savefig(model_folder+'/ConfusionMatrix.png', format='png', dpi=1200, bbox_inches='tight')
         
         logger.info("prediction time {} seconds".format(time.time()-predict_st))
 
@@ -305,7 +313,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
 
         logger.info("======== Model args =========")
 
-        batch_size = 4
+        batch_size = 5
 
         training_args = TrainingArguments(
             output_dir=model_folder,
@@ -314,7 +322,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             per_device_train_batch_size=batch_size, # to avoid OOM
             gradient_accumulation_steps=1, # to avoid OOM
             per_device_eval_batch_size=batch_size, # to avoid OOM
-            num_train_epochs=1,
+            num_train_epochs=100,
             weight_decay=0.01,
             evaluation_strategy="steps",
             save_strategy="steps",

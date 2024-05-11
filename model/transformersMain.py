@@ -51,14 +51,14 @@ if __name__=="__main__":
     ite = 1
 
     # Choose model
-    model_select = "OpenAIGPT2" # Options: RoBERTa, Longformer, OpenAIGPT2
+    model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
     model_type = getModelType(model_select)
 
     # Choose
     model_tokenize=0
     TokenizeCombine=0
-    model_train=1
-    model_predict=0
+    model_train=0
+    model_predict=1
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test
@@ -141,17 +141,17 @@ if __name__=="__main__":
         # all_train_data, train_data, val_data, test_data = data_read(logger, root_dir)
         # del all_train_data,train_data, val_data
         
-        test_data = pd.read_json("/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/Annotate/Sample_1326_For_Testing.json", orient='records')
-        test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
+        fileName = "/home/ravi/raviProject/DATA/Annotate/sampled_V2_10K.json"
+        test_data = pd.read_json(fileName, orient='records')
+        # test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
         logger.info("test_data.shape {}".format(test_data.shape))
-        test_data = test_data.rename(columns={"openAI-classification": "label", "reply": "article"})
-        # test_data = test_data[['article','label']]
-        test_data = test_data.rename(columns={'article': 'text'})
+        test_data = test_data.rename(columns={"reply": "text"})
+
         test_data.reset_index(drop=True)
         logger.info("test_data.shape {}".format(test_data.shape))
 
         # # Prediction
-        Transformers_predict(logger, model_select, model_predict, test_data, model_folder)
+        Transformers_predict(logger, model_select, model_predict, test_data, model_folder, fileName)
         
         # end
         logger.info("Execution time {} seconds".format(time.time()-execution_st))
