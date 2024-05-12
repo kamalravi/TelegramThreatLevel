@@ -313,7 +313,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
 
         logger.info("======== Model args =========")
 
-        batch_size = 5
+        batch_size = 2
 
         training_args = TrainingArguments(
             output_dir=model_folder,

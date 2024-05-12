@@ -48,7 +48,7 @@ def getModelType(model_select):
 if __name__=="__main__":
     
     ## inputs
-    ite = 1
+    ite = 2
 
     # Choose model
     model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
@@ -57,8 +57,8 @@ if __name__=="__main__":
     # Choose
     model_tokenize=0
     TokenizeCombine=0
-    model_train=0
-    model_predict=1
+    model_train=1
+    model_predict=0
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test
@@ -80,7 +80,9 @@ if __name__=="__main__":
         # inputs
         logger.info("Get inputs data")
         # Load data. Get K-Fold data. Save 5 fold indices (80% train, 20% test)
-        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/V1_Labeled_300_sampled.json", orient='records')
+        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/iter2_Labeled_600_sampled.json", orient='records')
+        # V1_Labeled_300_sampled.json
+        # iter2_Labeled_600_sampled.json
         # all_train_data = all_train_data.drop(columns=['label'])
         all_train_data['FinalLabel'] = all_train_data['FinalLabel'].astype('int64')
         logger.info("all_train_data.shape {}".format(all_train_data.shape))
