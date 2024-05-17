@@ -57,8 +57,8 @@ if __name__=="__main__":
     # Choose
     model_tokenize=0
     TokenizeCombine=0
-    model_train=1
-    model_predict=0
+    model_train=0
+    model_predict=1
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test
@@ -143,7 +143,7 @@ if __name__=="__main__":
         # all_train_data, train_data, val_data, test_data = data_read(logger, root_dir)
         # del all_train_data,train_data, val_data
         
-        fileName = "/home/ravi/raviProject/DATA/Annotate/sampled_V2_10K.json"
+        fileName = "/home/ravi/raviProject/DATA/Annotate/sampled_V3_10K.json"
         test_data = pd.read_json(fileName, orient='records')
         # test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
         logger.info("test_data.shape {}".format(test_data.shape))

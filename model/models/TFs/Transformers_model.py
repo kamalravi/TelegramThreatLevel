@@ -116,6 +116,9 @@ def Transformers_predict(logger, model_select, model_predict, test_data, model_f
         
         labeledFile = fileName.split('.')[0] + "_yPred_" + model_select +  ".json"
 
+        logger.info("test_data_yPred saved in \n {}".format(labeledFile))
+
+
         test_data_yTrue_yPred.to_json(labeledFile, orient='records')
 
         logger.info("test_data_yPred is \n {}".format(test_data_yTrue_yPred.shape))
