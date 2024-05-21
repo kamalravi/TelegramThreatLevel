@@ -48,17 +48,17 @@ def getModelType(model_select):
 if __name__=="__main__":
     
     ## inputs
-    ite = 2
+    ite = 4
 
     # Choose model
     model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
     model_type = getModelType(model_select)
 
     # Choose
-    model_tokenize=0
+    model_tokenize=1
     TokenizeCombine=0
     model_train=0
-    model_predict=1
+    model_predict=0
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test
@@ -80,7 +80,7 @@ if __name__=="__main__":
         # inputs
         logger.info("Get inputs data")
         # Load data. Get K-Fold data. Save 5 fold indices (80% train, 20% test)
-        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/iter2_Labeled_600_sampled.json", orient='records')
+        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/iter4_Labeled_4392_sampled.json", orient='records')
         # V1_Labeled_300_sampled.json
         # iter2_Labeled_600_sampled.json
         # all_train_data = all_train_data.drop(columns=['label'])
@@ -143,7 +143,7 @@ if __name__=="__main__":
         # all_train_data, train_data, val_data, test_data = data_read(logger, root_dir)
         # del all_train_data,train_data, val_data
         
-        fileName = "/home/ravi/raviProject/DATA/Annotate/sampled_V3_10K.json"
+        fileName = "/home/ravi/raviProject/DATA/Annotate/sampled_V4_10K.json"
         test_data = pd.read_json(fileName, orient='records')
         # test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
         logger.info("test_data.shape {}".format(test_data.shape))

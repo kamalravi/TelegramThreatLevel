@@ -316,7 +316,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
 
         logger.info("======== Model args =========")
 
-        batch_size = 2
+        batch_size = 3
 
         training_args = TrainingArguments(
             output_dir=model_folder,
@@ -325,7 +325,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             per_device_train_batch_size=batch_size, # to avoid OOM
             gradient_accumulation_steps=1, # to avoid OOM
             per_device_eval_batch_size=batch_size, # to avoid OOM
-            num_train_epochs=100,
+            num_train_epochs=50, #prev runs saturated at less than 50/100
             weight_decay=0.01,
             evaluation_strategy="steps",
             save_strategy="steps",
@@ -334,6 +334,9 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             save_steps=1,
             eval_steps=1,
             # fp16=True, # to avoid OOM # remove to run on GTX 1080 CARD
+            metric_for_best_model="f1",  # Use the F1 score as the metric
+            greater_is_better=True,  # Higher F1 score is better
+            disable_tqdm=False,  # Show progress bar
         )
 
         # Set CUDA_LAUNCH_BLOCKING environment variable
@@ -358,6 +361,29 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
         logger.info("========Saving Model=========")
         
         trainer.save_model()
+
+        logger.info("========Log the best model details=========")
+
+        # Log the best model
+        # Extract and log the best model checkpoint and the step/epoch
+        best_model_checkpoint = trainer.state.best_model_checkpoint
+        best_metric = trainer.state.best_metric
+        # Log the best model details
+        logger.info(f"Best model checkpoint: {best_model_checkpoint}")
+        logger.info(f"Best model's score: {best_metric}")
+
+        # Extract the step from the checkpoint name
+        best_step = None
+        if best_model_checkpoint:
+            checkpoint_parts = best_model_checkpoint.split('-')
+            if len(checkpoint_parts) > 1 and checkpoint_parts[-1].isdigit():
+                best_step = int(checkpoint_parts[-1])
+        # Log the best model details
+        if best_step is not None:
+            logger.info(f"Best model was saved at step: {best_step}")
+        else:
+            logger.info("Best model step could not be determined from checkpoint name.")
+
         
         logger.info("train time {} seconds".format(time.time()-model_st))
         
