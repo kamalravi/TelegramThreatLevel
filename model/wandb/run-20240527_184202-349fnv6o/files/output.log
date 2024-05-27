@@ -1,0 +1,283 @@
+Skipping the first batches: 100%|███████████████████████████████████████████████████████████████████████| 85/85 [00:02<00:00, 30.26it/s]
+  0%|                                                                                                         | 0/11400 [00:00<?, ?it/s]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                       | 86/11400 [00:05<11:26, 16.47it/s]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+ 79%|██████████████████████████████████████████████████████████████████████████████▌                    | 23/29 [00:09<00:02,  2.28it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-86
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-86/config.json400 [00:17<11:26, 16.47it/s]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-86/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-86/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-86/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-85] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                     | 87/11400 [00:23<1:08:18,  2.76it/s]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████▏      | 27/29 [00:11<00:00,  2.33it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-87
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-87/config.json0 [00:36<1:08:18,  2.76it/s]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-87/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-87/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-87/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-86] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                     | 88/11400 [00:42<2:26:49,  1.28it/s]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+ 90%|████████████████████████████████████████████████████████████████████████████████████████▊          | 26/29 [00:10<00:01,  2.30it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-88
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-88/config.json0 [00:55<2:26:49,  1.28it/s]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-88/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-88/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-88/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-87] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                     | 89/11400 [01:01<4:13:08,  1.34s/it]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+ 86%|█████████████████████████████████████████████████████████████████████████████████████▎             | 25/29 [00:10<00:01,  2.32it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-89
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-89/config.json0 [01:13<4:13:08,  1.34s/it]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-89/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-89/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-89/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-88] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                     | 90/11400 [01:19<6:33:23,  2.09s/it]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+
+ 97%|███████████████████████████████████████████████████████████████████████████████████████████████▌   | 28/29 [00:11<00:00,  2.18it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-90
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-90/config.json0 [01:32<6:33:23,  2.09s/it]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-90/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-90/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-90/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-89] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                     | 91/11400 [01:38<9:34:05,  3.05s/it]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████▏      | 27/29 [00:11<00:00,  2.30it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-91
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-91/config.json0 [01:50<9:34:05,  3.05s/it]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-91/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-91/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-91/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-90] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                    | 92/11400 [01:57<13:25:08,  4.27s/it]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+ 86%|█████████████████████████████████████████████████████████████████████████████████████▎             | 25/29 [00:10<00:01,  2.26it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-92
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-92/config.json [02:09<13:25:08,  4.27s/it]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-92/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-92/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-92/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-83] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                    | 93/11400 [02:15<17:51:38,  5.69s/it]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-93
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-93/config.json [02:28<17:51:38,  5.69s/it]
+{'eval_loss': 0.5333924293518066, 'eval_f1': 0.7988483176612055, 'eval_runtime': 12.4978, 'eval_samples_per_second': 36.246, 'eval_steps_per_second': 2.32, 'epoch': 0.82}
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-93/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-93/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-93/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-91] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                    | 94/11400 [02:34<22:50:39,  7.27s/it]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+ 97%|███████████████████████████████████████████████████████████████████████████████████████████████▌   | 28/29 [00:11<00:00,  2.14it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-94
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-94/config.json [02:47<22:50:39,  7.27s/it]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-94/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-94/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-94/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-93] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                    | 95/11400 [02:53<28:11:24,  8.98s/it]
+  Num examples = 453
+  Batch size = 4
+
+
+
+
+
+ 90%|████████████████████████████████████████████████████████████████████████████████████████▊          | 26/29 [00:10<00:01,  2.34it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-95
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-95/config.json [03:05<28:11:24,  8.98s/it]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-95/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-95/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-95/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-94] due to args.save_total_limit
+                                                                                                                                        The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****                                                                    | 96/11400 [03:11<33:29:13, 10.66s/it]
+  Num examples = 453
+  Batch size = 4
+ 21%|████████████████████▋                                                                               | 6/29 [00:02<00:09,  2.51it/s]
+ 38%|█████████████████████████████████████▌                                                             | 11/29 [00:04<00:07,  2.33it/s]
+ 52%|███████████████████████████████████████████████████▏                                               | 15/29 [00:06<00:06,  2.22it/s]
+ 69%|████████████████████████████████████████████████████████████████████▎                              | 20/29 [00:08<00:04,  2.20it/s]
+ 83%|█████████████████████████████████████████████████████████████████████████████████▉                 | 24/29 [00:10<00:02,  2.20it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-96
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-96
+{'eval_loss': 0.525412917137146, 'eval_f1': 0.7949056660258699, 'eval_runtime': 12.773, 'eval_samples_per_second': 35.466, 'eval_steps_per_second': 2.27, 'epoch': 0.84}
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-95] due to args.save_total_limit
+ 17%|█████████████████▏                                                                                  | 5/29 [00:01<00:09,  2.65it/s]
+ 34%|██████████████████████████████████▏                                                                | 10/29 [00:03<00:08,  2.36it/s]
+ 48%|███████████████████████████████████████████████▊                                                   | 14/29 [00:05<00:06,  2.35it/s]
+ 66%|████████████████████████████████████████████████████████████████▊                                  | 19/29 [00:07<00:04,  2.29it/s]
+ 79%|██████████████████████████████████████████████████████████████████████████████▌                    | 23/29 [00:09<00:02,  2.28it/s]
+ 97%|███████████████████████████████████████████████████████████████████████████████████████████████▌   | 28/29 [00:11<00:00,  2.19it/s]
+ 97%|███████████████████████████████████████████████████████████████████████████████████████████████▌   | 28/29 [00:11<00:00,  2.19it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-97
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-96] due to args.save_total_limit
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+ 31%|███████████████████████████████                                                                     | 9/29 [00:03<00:08,  2.39it/s]
+ 45%|████████████████████████████████████████████▍                                                      | 13/29 [00:05<00:06,  2.31it/s]
+ 62%|█████████████████████████████████████████████████████████████▍                                     | 18/29 [00:07<00:04,  2.24it/s]
+ 76%|███████████████████████████████████████████████████████████████████████████                        | 22/29 [00:09<00:03,  2.23it/s]
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████▏      | 27/29 [00:11<00:00,  2.30it/s]
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████▏      | 27/29 [00:11<00:00,  2.30it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-98
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-98
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-97] due to args.save_total_limit
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+{'eval_loss': 0.5736075043678284, 'eval_f1': 0.7924932464460664, 'eval_runtime': 12.4942, 'eval_samples_per_second': 36.257, 'eval_steps_per_second': 2.321, 'epoch': 0.87}
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+  Batch size = 4                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+  Batch size = 4                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+  Batch size = 4                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+  Batch size = 4                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+  Batch size = 4                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+  Batch size = 4                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+  Batch size = 4                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+  Batch size = 4                                                                                         | 3/29 [00:00<00:08,  3.22it/s]
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-100/special_tokens_map.json3.22it/s]
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-100/special_tokens_map.json3.22it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+{'eval_loss': 0.6248937249183655, 'eval_f1': 0.7903693636207417, 'eval_runtime': 12.5903, 'eval_samples_per_second': 35.98, 'eval_steps_per_second': 2.303, 'epoch': 0.89}
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.82it/s]
+  0%|                                                                                                            | 0/29 [00:00<?, ?it/s]
+  0%|                                                                                                            | 0/29 [00:00<?, ?it/s]
+  0%|                                                                                                            | 0/29 [00:00<?, ?it/s]
+  0%|                                                                                                            | 0/29 [00:00<?, ?it/s]
+  0%|                                                                                                            | 0/29 [00:00<?, ?it/s]
+  0%|                                                                                                            | 0/29 [00:00<?, ?it/s]
+  0%|                                                                                                            | 0/29 [00:00<?, ?it/s]
+  0%|                                                                                                            | 0/29 [00:00<?, ?it/s]
+{'eval_loss': 0.6393476128578186, 'eval_f1': 0.7829612873274094, 'eval_runtime': 12.6081, 'eval_samples_per_second': 35.929, 'eval_steps_per_second': 2.3, 'epoch': 0.89}
+  Batch size = 4                                                                                                 | 0/29 [00:00<?, ?it/s]
+  Batch size = 4                                                                                                 | 0/29 [00:00<?, ?it/s]
+  Batch size = 4                                                                                                 | 0/29 [00:00<?, ?it/s]
+  Batch size = 4                                                                                                 | 0/29 [00:00<?, ?it/s]
+  Batch size = 4                                                                                                 | 0/29 [00:00<?, ?it/s]
+  Batch size = 4                                                                                                 | 0/29 [00:00<?, ?it/s]
+  Batch size = 4                                                                                                 | 0/29 [00:00<?, ?it/s]
+  Batch size = 4                                                                                                 | 0/29 [00:00<?, ?it/s]
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-103/special_tokens_map.json?, ?it/s]
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-103/special_tokens_map.json?, ?it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+{'eval_loss': 0.6552780270576477, 'eval_f1': 0.775081469687969, 'eval_runtime': 12.6706, 'eval_samples_per_second': 35.752, 'eval_steps_per_second': 2.289, 'epoch': 0.91}
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+ 10%|██████████▎                                                                                         | 3/29 [00:00<00:08,  3.23it/s]
+  7%|██████▉                                                                                             | 2/29 [00:00<00:05,  4.58it/s]
+  7%|██████▉                                                                                             | 2/29 [00:00<00:05,  4.58it/s]
+  7%|██████▉                                                                                             | 2/29 [00:00<00:05,  4.58it/s]
+  7%|██████▉                                                                                             | 2/29 [00:00<00:05,  4.58it/s]
+  7%|██████▉                                                                                             | 2/29 [00:00<00:05,  4.58it/s]
+  7%|██████▉                                                                                             | 2/29 [00:00<00:05,  4.58it/s]
+  7%|██████▉                                                                                             | 2/29 [00:00<00:05,  4.58it/s]
+{'eval_loss': 0.6492637395858765, 'eval_f1': 0.7834616940577205, 'eval_runtime': 12.4931, 'eval_samples_per_second': 36.26, 'eval_steps_per_second': 2.321, 'epoch': 0.92}
+  7%|██████▉                                                                                             | 2/29 [00:00<00:05,  4.58it/s]
+  Batch size = 4                                                                                         | 2/29 [00:00<00:05,  4.58it/s]
+  Batch size = 4                                                                                         | 2/29 [00:00<00:05,  4.58it/s]
+  Batch size = 4                                                                                         | 2/29 [00:00<00:05,  4.58it/s]
+  Batch size = 4                                                                                         | 2/29 [00:00<00:05,  4.58it/s]
+  Batch size = 4                                                                                         | 2/29 [00:00<00:05,  4.58it/s]
+  Batch size = 4                                                                                         | 2/29 [00:00<00:05,  4.58it/s]
+  Batch size = 4                                                                                         | 2/29 [00:00<00:05,  4.58it/s]
+  Batch size = 4                                                                                         | 2/29 [00:00<00:05,  4.58it/s]
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-106/special_tokens_map.json4.58it/s]
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-106/special_tokens_map.json4.58it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+{'eval_loss': 0.6928791403770447, 'eval_f1': 0.7667166260020913, 'eval_runtime': 12.4957, 'eval_samples_per_second': 36.252, 'eval_steps_per_second': 2.321, 'epoch': 0.94}
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+ 14%|█████████████▊                                                                                      | 4/29 [00:01<00:08,  2.83it/s]
+    return _VF.dropout_(input, p, training) if inplace else _VF.dropout(input, p, training)es/module.py", line 1130, in _call_imple 413, in forward
+    return _VF.dropout_(input, p, training) if inplace else _VF.dropout(input, p, training)es/module.py", line 1130, in _call_imple 413, in forward
+    return _VF.dropout_(input, p, training) if inplace else _VF.dropout(input, p, training)es/module.py", line 1130, in _call_imple 413, in forward

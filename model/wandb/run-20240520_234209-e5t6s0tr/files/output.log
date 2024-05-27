@@ -1,0 +1,655 @@
+
+  0%|                                                                                                 | 1/8800 [00:05<12:43:43,  5.21s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+ 98%|██████████████████████████████████████████████████████████████████████████████████████████████████▋  | 43/44 [00:19<00:00,  2.03it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-1/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-1/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-1/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-1/special_tokens_map.json
+  0%|                                                                                                 | 2/8800 [00:31<42:43:40, 17.48s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 44/44 [00:20<00:00,  2.07it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-2/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-2/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-2/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-2/special_tokens_map.json
+  0%|                                                                                                 | 3/8800 [00:57<52:18:34, 21.41s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+
+ 98%|██████████████████████████████████████████████████████████████████████████████████████████████████▋  | 43/44 [00:19<00:00,  2.02it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-1] due to args.save_total_limit
+  0%|                                                                                                 | 4/8800 [01:24<57:32:30, 23.55s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+ 93%|██████████████████████████████████████████████████████████████████████████████████████████████       | 41/44 [00:18<00:01,  1.83it/s]
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-4/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-4/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-4/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-4/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-2] due to args.save_total_limit
+  0%|                                                                                                 | 5/8800 [01:50<60:16:17, 24.67s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+ 91%|███████████████████████████████████████████████████████████████████████████████████████████▊         | 40/44 [00:18<00:01,  2.04it/s]
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-5/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-5/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-5/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-5/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-3] due to args.save_total_limit
+  0%|                                                                                                 | 6/8800 [02:17<62:03:08, 25.40s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+ 98%|██████████████████████████████████████████████████████████████████████████████████████████████████▋  | 43/44 [00:19<00:00,  2.03it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-6/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-6/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-6/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-6/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-4] due to args.save_total_limit
+  0%|                                                                                                 | 7/8800 [02:44<63:00:04, 25.79s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+ 93%|██████████████████████████████████████████████████████████████████████████████████████████████       | 41/44 [00:19<00:01,  1.81it/s]
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-7/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-7/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-7/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-7/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-5] due to args.save_total_limit
+  0%|                                                                                                 | 8/8800 [03:11<63:45:36, 26.11s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+ 93%|██████████████████████████████████████████████████████████████████████████████████████████████       | 41/44 [00:18<00:01,  1.83it/s]
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-8/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-8/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-8/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-8/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-7] due to args.save_total_limit
+  0%|                                                                                                 | 9/8800 [03:37<64:19:36, 26.34s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-9/config.json
+{'eval_loss': 0.8492304682731628, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7502, 'eval_samples_per_second': 42.361, 'eval_steps_per_second': 2.12, 'epoch': 0.05}
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-9/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-9/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-9/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-8] due to args.save_total_limit
+  0%|                                                                                                | 10/8800 [04:04<64:34:24, 26.45s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+
+
+
+
+
+
+
+
+
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-10/config.json
+{'eval_loss': 0.820389986038208, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5196, 'eval_samples_per_second': 42.837, 'eval_steps_per_second': 2.144, 'epoch': 0.06}
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-10/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-10/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-10/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-9] due to args.save_total_limit
+  0%|                                                                                                | 11/8800 [04:31<64:43:57, 26.51s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 879
+  Batch size = 5
+ 16%|████████████████▏                                                                                     | 7/44 [00:02<00:16,  2.29it/s]
+ 25%|█████████████████████████▎                                                                           | 11/44 [00:04<00:15,  2.16it/s]
+ 34%|██████████████████████████████████▍                                                                  | 15/44 [00:06<00:13,  2.13it/s]
+ 43%|███████████████████████████████████████████▌                                                         | 19/44 [00:08<00:12,  2.06it/s]
+ 52%|████████████████████████████████████████████████████▊                                                | 23/44 [00:10<00:09,  2.16it/s]
+ 64%|████████████████████████████████████████████████████████████████▎                                    | 28/44 [00:12<00:07,  2.18it/s]
+ 73%|█████████████████████████████████████████████████████████████████████████▍                           | 32/44 [00:14<00:05,  2.27it/s]
+ 84%|████████████████████████████████████████████████████████████████████████████████████▉                | 37/44 [00:16<00:03,  2.22it/s]
+ 91%|███████████████████████████████████████████████████████████████████████████████████████████▊         | 40/44 [00:18<00:01,  2.08it/s]
+ 91%|███████████████████████████████████████████████████████████████████████████████████████████▊         | 40/44 [00:18<00:01,  2.08it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-11/config.json
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-11/config.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+  Batch size = 5heckpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-10] due to args.save_total_limit
+{'eval_loss': 0.828728437423706, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5555, 'eval_samples_per_second': 42.762, 'eval_steps_per_second': 2.141, 'epoch': 0.07}
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-12/tokenizer_config.jsonmit
+***** Running Evaluation ***** /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-12/tokenizer_config.jsonmit
+  9%|█████████▎                                                                                            | 4/44 [00:01<00:15,  2.61it/s]
+ 20%|████████████████████▊                                                                                 | 9/44 [00:03<00:15,  2.26it/s]
+ 30%|█████████████████████████████▊                                                                       | 13/44 [00:05<00:14,  2.09it/s]
+ 39%|███████████████████████████████████████                                                              | 17/44 [00:07<00:12,  2.13it/s]
+ 48%|████████████████████████████████████████████████▏                                                    | 21/44 [00:09<00:10,  2.10it/s]
+ 48%|████████████████████████████████████████████████▏                                                    | 21/44 [00:09<00:10,  2.10it/s]
+ 48%|████████████████████████████████████████████████▏                                                    | 21/44 [00:09<00:10,  2.10it/s]
+ 48%|████████████████████████████████████████████████▏                                                    | 21/44 [00:09<00:10,  2.10it/s]
+ 48%|████████████████████████████████████████████████▏                                                    | 21/44 [00:09<00:10,  2.10it/s]
+ 48%|████████████████████████████████████████████████▏                                                    | 21/44 [00:09<00:10,  2.10it/s]
+ 48%|████████████████████████████████████████████████▏                                                    | 21/44 [00:09<00:10,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.7819697856903076, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5258, 'eval_samples_per_second': 42.824, 'eval_steps_per_second': 2.144, 'epoch': 0.08}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.7901166677474976, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7645, 'eval_samples_per_second': 42.332, 'eval_steps_per_second': 2.119, 'epoch': 0.09}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-13/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.9521375894546509, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.6995, 'eval_samples_per_second': 42.465, 'eval_steps_per_second': 2.126, 'epoch': 0.1}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.9536837339401245, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.569, 'eval_samples_per_second': 42.734, 'eval_steps_per_second': 2.139, 'epoch': 0.1}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.9384176135063171, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7363, 'eval_samples_per_second': 42.389, 'eval_steps_per_second': 2.122, 'epoch': 0.11}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-16/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.861131489276886, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7009, 'eval_samples_per_second': 42.462, 'eval_steps_per_second': 2.126, 'epoch': 0.12}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8512657880783081, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5958, 'eval_samples_per_second': 42.679, 'eval_steps_per_second': 2.136, 'epoch': 0.12}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-20/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8349053263664246, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.6075, 'eval_samples_per_second': 42.654, 'eval_steps_per_second': 2.135, 'epoch': 0.14}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8264276385307312, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7305, 'eval_samples_per_second': 42.401, 'eval_steps_per_second': 2.122, 'epoch': 0.14}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-23/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8166037797927856, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7241, 'eval_samples_per_second': 42.414, 'eval_steps_per_second': 2.123, 'epoch': 0.15}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8370602130889893, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5276, 'eval_samples_per_second': 42.82, 'eval_steps_per_second': 2.143, 'epoch': 0.16}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8427430391311646, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7367, 'eval_samples_per_second': 42.389, 'eval_steps_per_second': 2.122, 'epoch': 0.16}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8331376314163208, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5394, 'eval_samples_per_second': 42.796, 'eval_steps_per_second': 2.142, 'epoch': 0.17}
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8234447240829468, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7456, 'eval_samples_per_second': 42.37, 'eval_steps_per_second': 2.121, 'epoch': 0.18}
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8226115703582764, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5723, 'eval_samples_per_second': 42.727, 'eval_steps_per_second': 2.139, 'epoch': 0.18}
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8166502118110657, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7668, 'eval_samples_per_second': 42.327, 'eval_steps_per_second': 2.119, 'epoch': 0.19}
+  Batch size = 5 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-26/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8180246353149414, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.735, 'eval_samples_per_second': 42.392, 'eval_steps_per_second': 2.122, 'epoch': 0.2}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8126085996627808, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5108, 'eval_samples_per_second': 42.855, 'eval_steps_per_second': 2.145, 'epoch': 0.2}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-34/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8020366430282593, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5041, 'eval_samples_per_second': 42.869, 'eval_steps_per_second': 2.146, 'epoch': 0.22}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.819338321685791, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7024, 'eval_samples_per_second': 42.459, 'eval_steps_per_second': 2.125, 'epoch': 0.22}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+  Num examples = 879e saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-37/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8212457299232483, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.7623, 'eval_samples_per_second': 42.336, 'eval_steps_per_second': 2.119, 'epoch': 0.23}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+{'eval_loss': 0.8276360034942627, 'eval_f1': 0.6241588723036574, 'eval_runtime': 20.5324, 'eval_samples_per_second': 42.81, 'eval_steps_per_second': 2.143, 'epoch': 0.24}
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+  Batch size = 5 file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-40/tokenizer_config.json,  2.10it/s]
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-43/tokenizer_config.json,  2.10it/s]
+RuntimeError: CUDA out of memory. Tried to allocate 10.00 MiB (GPU 0; 10.91 GiB total capacity; 9.66 GiB already allocated; 9.00 MiB free; 10.15 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+RuntimeError: CUDA out of memory. Tried to allocate 10.00 MiB (GPU 0; 10.91 GiB total capacity; 9.66 GiB already allocated; 9.00 MiB free; 10.15 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+RuntimeError: CUDA out of memory. Tried to allocate 10.00 MiB (GPU 0; 10.91 GiB total capacity; 9.66 GiB already allocated; 9.00 MiB free; 10.15 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

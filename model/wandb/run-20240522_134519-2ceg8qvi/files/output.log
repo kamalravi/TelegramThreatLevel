@@ -1,0 +1,29 @@
+Skipping the first batches: 100%|███████████████████████████████████████████████████████████████████████████| 1/1 [00:02<00:00,  2.70s/it]
+  0%|                                                                                                            | 0/7200 [00:00<?, ?it/s]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****███████████████████████                                                | 3602/7200 [00:05<00:05, 715.69it/s]
+  Num examples = 358
+  Batch size = 5
+
+
+
+ 94%|███████████████████████████████████████████████████████████████████████████████████████████████▍     | 17/18 [00:07<00:00,  2.21it/s]
+Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3602
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3602/config.json00 [00:13<00:05, 715.69it/s]
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3602/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3602/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_4/checkpoint-3602/special_tokens_map.json
+  File "/home/ravi/raviProject/CODE/model/transformersMain.py", line 141, in <module>                | 3602/7200 [00:17<00:05, 715.69it/s]
+    Transformers_train(logger, model_select, model_train, model_type, model_folder)
+  File "/home/ravi/raviProject/CODE/model/models/TFs/Transformers_model.py", line 362, in Transformers_train
+    trainer.train(resume_from_checkpoint=checkpoint_dir)
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/transformers/trainer.py", line 1497, in train
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/transformers/trainer.py", line 1628, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial, metrics=metrics)
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/transformers/trainer.py", line 1787, in _save_checkpoint
+    self._rotate_checkpoints(use_mtime=True, output_dir=run_dir)
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/transformers/trainer.py", line 2227, in _rotate_checkpoints
+    checkpoints_sorted = self._sorted_checkpoints(use_mtime=use_mtime, output_dir=output_dir)
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/transformers/trainer.py", line 2217, in _sorted_checkpoints
+    best_model_index = checkpoints_sorted.index(str(Path(self.state.best_model_checkpoint)))
+ValueError: '/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_4/checkpoint-1913' is not in list

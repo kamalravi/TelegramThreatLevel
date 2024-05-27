@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.15.0-105-generic-x86_64-with-glibc2.31",
+    "python": "3.10.4",
+    "heartbeatAt": "2024-05-21T03:27:08.057778",
+    "startedAt": "2024-05-21T03:27:07.125635",
+    "docker": null,
+    "gpu": "NVIDIA GeForce GTX 1080 Ti",
+    "gpu_count": 4,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/ravi/raviProject/CODE/model/transformersMain.py",
+    "codePath": "model/transformersMain.py",
+    "git": {
+        "remote": "https://github.com/kamalravi/TelegramThreatLevel.git",
+        "commit": "a16e43a5b1bb2ce897f2267328635368a059c488"
+    },
+    "email": "rkk.bme@gmail.com",
+    "root": "/home/ravi/raviProject/CODE",
+    "host": "Lamdba2",
+    "username": "ravi",
+    "executable": "/home/ravi/miniconda3/envs/transformers/bin/python"
+}
