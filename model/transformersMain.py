@@ -28,7 +28,7 @@ import torch
 # custom built functions
 from logs.get_logs import setup_logger
 from dataPrep.get_data_fold import data_read
-from models.TFs.Transformers_model import BatchTokenize, BatchTokenizeCombine, Transformers_train, Transformers_predict
+from models.TFs.TFs_model import BatchTokenize, BatchTokenizeCombine, Transformers_train, Transformers_predict
 from utils.utils import set_seed
 
 # functions go here
