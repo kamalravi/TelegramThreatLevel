@@ -31,6 +31,10 @@ import json
 import io
 import shutil
 
+import torch
+# Clear GPU memory
+# torch.cuda.empty_cache()
+
 # preprocess
 from transformers import AutoTokenizer
 from transformers import DataCollatorWithPadding
@@ -46,7 +50,7 @@ from torch import nn
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
 
 # prediction
-import torch
+
 import glob
 from natsort import natsorted
 
@@ -299,6 +303,9 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
         model = AutoModelForSequenceClassification.from_pretrained(
             model_type, num_labels=3
         )
+
+        # Enable gradient checkpointing to reduce memory usage
+        # model.gradient_checkpointing_enable()
         
         # # path to the model checkpoint from the 36th epoch
         # model_checkpoint = "/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/DataModelsResults/Results/OpenAIGPT2/checkpoint-288000/"
@@ -316,23 +323,23 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
 
         logger.info("======== Model args =========")
 
-        batch_size=5
+        batch_size=2
 
         training_args = TrainingArguments(
             output_dir=model_folder,
             seed=seed,
             learning_rate=2e-5,
             per_device_train_batch_size=batch_size, # to avoid OOM
-            gradient_accumulation_steps=1, # to avoid OOM
+            gradient_accumulation_steps=2, # to avoid OOM
             per_device_eval_batch_size=batch_size, # to avoid OOM
-            num_train_epochs=100, #prev runs saturated at less than 50/100
+            num_train_epochs=500, #prev runs saturated at less than 50/100
             weight_decay=0.01,
             evaluation_strategy="steps",
             save_strategy="steps",
             load_best_model_at_end=True,
             save_total_limit=2,
-            save_steps=1,
-            eval_steps=1,
+            save_steps=16,
+            eval_steps=16,
             # fp16=True, # to avoid OOM # remove to run on GTX 1080 CARD
             metric_for_best_model="f1",  # Use the F1 score as the metric
             greater_is_better=True,  # Higher F1 score is better

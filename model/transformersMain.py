@@ -14,6 +14,10 @@ np.random.seed(seed)
 import time
 import pandas as pd
 
+import torch
+# Clear GPU memory
+# torch.cuda.empty_cache()
+
 # preprocess
 from datasets import Dataset, DatasetDict, concatenate_datasets
 from sklearn.model_selection import train_test_split
@@ -23,7 +27,6 @@ import evaluate
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
 
 # prediction
-import torch
 
 # custom built functions
 from logs.get_logs import setup_logger
@@ -57,8 +60,8 @@ if __name__=="__main__":
     # Choose
     model_tokenize=0
     TokenizeCombine=0
-    model_train=1
-    model_predict=0
+    model_train=0
+    model_predict=1
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test

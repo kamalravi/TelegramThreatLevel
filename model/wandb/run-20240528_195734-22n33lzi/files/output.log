@@ -1,0 +1,293 @@
+
+
+
+
+
+
+
+
+
+
+
+  0%|▏                                                                                                       | 16/11300 [00:27<4:27:03,  1.42s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+ 93%|█████████████████████████████████████████████████████████████████████████████████████████████████████▎       | 53/57 [00:21<00:01,  2.41it/s]
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-16/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-16/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-16/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-16/special_tokens_map.json
+
+
+
+
+
+
+
+
+
+
+  0%|▎                                                                                                       | 32/11300 [01:18<4:30:59,  1.44s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+
+ 98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████  | 56/57 [00:23<00:00,  2.35it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-32/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-32/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-32/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-32/special_tokens_map.json
+
+
+
+
+
+
+
+
+
+  0%|▍                                                                                                       | 48/11300 [02:09<4:32:43,  1.45s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+
+ 95%|███████████████████████████████████████████████████████████████████████████████████████████████████████▎     | 54/57 [00:22<00:01,  2.40it/s]
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-48/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-48/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-48/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-48/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-16] due to args.save_total_limit
+
+
+
+
+
+
+
+
+
+
+  1%|▌                                                                                                       | 64/11300 [03:01<4:32:28,  1.45s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▏   | 55/57 [00:22<00:00,  2.31it/s]
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-64/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-64/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-64/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-64/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-32] due to args.save_total_limit
+
+
+
+
+
+
+
+
+
+
+  1%|▋                                                                                                       | 80/11300 [03:53<4:37:28,  1.48s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+
+ 98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████  | 56/57 [00:23<00:00,  2.35it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-80/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-80/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-80/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-80/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-48] due to args.save_total_limit
+
+
+
+
+
+
+
+
+
+  1%|▉                                                                                                       | 96/11300 [04:44<4:29:49,  1.44s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+
+ 91%|███████████████████████████████████████████████████████████████████████████████████████████████████▍         | 52/57 [00:21<00:02,  2.42it/s]
+{'eval_loss': 0.5267040729522705, 'eval_f1': 0.7974984823531069, 'eval_runtime': 24.0048, 'eval_samples_per_second': 18.871, 'eval_steps_per_second': 2.375, 'epoch': 0.85}
+  1%|▉                                                                                                       | 96/11300 [05:08<4:29:49,  1.44s/it]Saving model checkpoint to /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-96
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-96/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-96/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-96/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-96/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-64] due to args.save_total_limit
+
+
+
+
+
+
+
+
+
+
+  1%|█                                                                                                      | 112/11300 [05:37<4:33:59,  1.47s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+
+ 98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████  | 56/57 [00:23<00:00,  2.35it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-112/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-112/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-112/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-112/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-80] due to args.save_total_limit
+
+
+
+
+
+
+
+
+
+
+  1%|█▏                                                                                                     | 128/11300 [06:29<4:32:46,  1.46s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+
+ 98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████  | 56/57 [00:23<00:00,  2.35it/s]
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-128/config.json
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-128/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-128/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-128/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-96] due to args.save_total_limit
+
+
+
+
+
+
+
+
+
+  1%|█▎                                                                                                     | 144/11300 [07:20<4:33:24,  1.47s/it]The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text. If text are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 453
+  Batch size = 2
+
+
+
+
+
+
+
+
+
+
+
+Configuration saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-144/config.json
+{'eval_loss': 0.5896542072296143, 'eval_f1': 0.816034784209324, 'eval_runtime': 23.9559, 'eval_samples_per_second': 18.91, 'eval_steps_per_second': 2.379, 'epoch': 1.27}
+Model weights saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-144/pytorch_model.bin
+tokenizer config file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-144/tokenizer_config.json
+Special tokens file saved in /home/ravi/raviProject/DataModelsResults//Results/RoBERTa_5/checkpoint-144/special_tokens_map.json
+Deleting older checkpoint [/home/ravi/raviProject/DataModelsResults/Results/RoBERTa_5/checkpoint-112] due to args.save_total_limit
+Traceback (most recent call last):
+  File "/home/ravi/raviProject/CODE/model/transformersMain.py", line 143, in <module>
+    Transformers_train(logger, model_select, model_train, model_type, model_folder)
+  File "/home/ravi/raviProject/CODE/model/models/TFs/TFs_model.py", line 371, in Transformers_train
+    trainer.train()
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/transformers/trainer.py", line 1422, in train
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/transformers/trainer.py", line 2029, in training_step
+    loss.backward()
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/ravi/miniconda3/envs/transformers/lib/python3.10/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
