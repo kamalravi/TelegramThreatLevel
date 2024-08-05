@@ -51,7 +51,7 @@ def getModelType(model_select):
 if __name__=="__main__":
     
     ## inputs
-    ite = 5
+    ite = 6
 
     # Choose model
     model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
@@ -83,7 +83,7 @@ if __name__=="__main__":
         # inputs
         logger.info("Get inputs data")
         # Load data. Get K-Fold data. Save 5 fold indices (80% train, 20% test)
-        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/iter5_Labeled_2262_sampled.json", orient='records')
+        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/iter6_Labeled_7605_sampled_forNextIter.json", orient='records')
         # V1_Labeled_300_sampled.json
         # iter2_Labeled_600_sampled.json
         # all_train_data = all_train_data.drop(columns=['label'])
@@ -153,7 +153,7 @@ if __name__=="__main__":
         # all_train_data, train_data, val_data, test_data = data_read(logger, root_dir)
         # del all_train_data,train_data, val_data
         
-        fileName = "/home/ravi/raviProject/DATA/Annotate/sampled_V6_100K.json"
+        fileName = "/home/ravi/raviProject/DATA/Annotate/sampled_V7_151110.json"
         test_data = pd.read_json(fileName, orient='records')
         # test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
         logger.info("test_data.shape {}".format(test_data.shape))

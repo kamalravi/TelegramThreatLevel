@@ -66,7 +66,9 @@ def Transformers_predict(logger, model_select, model_predict, test_data, model_f
         
         logger.info("=======loading FineTuned model==========")
         # Tokenize the text and return PyTorch tensors:
+        model_folder = model_folder + "checkpoint-11008/"
         tokenizer = AutoTokenizer.from_pretrained(model_folder)
+        logger.info("model_folder saved is \n {}".format(model_folder))
 
         if model_select=="OpenAIGPT2": # https://github.com/huggingface/transformers/issues/3859 and https://gmihaila.github.io/tutorial_notebooks/gpt2_finetune_classification/ 
             # default to left padding
@@ -97,7 +99,7 @@ def Transformers_predict(logger, model_select, model_predict, test_data, model_f
         model.to(device)
 
         y_pred=[]
-        for count, chunk in enumerate(np.array_split(test_data, 1000)):
+        for count, chunk in enumerate(np.array_split(test_data, 1500)):
             print(count, chunk.shape)            
             inputs = preprocess_text(chunk['text'].values.tolist())
             # Move inputs to device
