@@ -66,7 +66,7 @@ def Transformers_predict(logger, model_select, model_predict, test_data, model_f
         
         logger.info("=======loading FineTuned model==========")
         # Tokenize the text and return PyTorch tensors:
-        model_folder = model_folder + "checkpoint-11008/"
+        model_folder = model_folder + "checkpoint-2224/"
         tokenizer = AutoTokenizer.from_pretrained(model_folder)
         logger.info("model_folder saved is \n {}".format(model_folder))
 
@@ -334,7 +334,7 @@ def Transformers_train(logger,  model_select, model_train, model_type, model_fol
             per_device_train_batch_size=batch_size, # to avoid OOM
             gradient_accumulation_steps=2, # to avoid OOM
             per_device_eval_batch_size=batch_size, # to avoid OOM
-            num_train_epochs=500, #prev runs saturated at less than 50/100
+            num_train_epochs=100, #prev runs saturated at less than 50/100
             weight_decay=0.01,
             evaluation_strategy="steps",
             save_strategy="steps",
