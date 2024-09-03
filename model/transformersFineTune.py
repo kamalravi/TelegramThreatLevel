@@ -54,7 +54,7 @@ if __name__=="__main__":
     ite = 1
 
     # Choose model
-    model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
+    model_select = "OpenAIGPT2" # Options: RoBERTa, Longformer, OpenAIGPT2
     model_type = getModelType(model_select)
 
     # Choose
