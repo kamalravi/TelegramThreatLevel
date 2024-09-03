@@ -69,7 +69,7 @@ def fastText_HoldOut(logger, pred_HoldOut, model_folder, root_dir):
 
             # y_pred = model.predict(df.article)
             predictions = []
-            for tweet in df['article']:
+            for tweet in df['text']:
                 tweet = ''.join(tweet.replace('\n', ' '))
                 yPred=model.predict(tweet)[0][0]
                 # print()
@@ -105,7 +105,7 @@ def testfastText(logger, model_predict, model_folder, test_data, test_data_yTrue
         logger.info("================ Predict ==================")
 
         predictions = []
-        for tweet in test_data['article']:
+        for tweet in test_data['text']:
             tweet = ''.join(tweet.replace('\n', ' '))
             yPred=model.predict(tweet)[0][0]
             # print()
@@ -117,7 +117,7 @@ def testfastText(logger, model_predict, model_folder, test_data, test_data_yTrue
         test_data_yTrue_yPred.to_json(model_folder+'/test_data_yTrue_yPred.json', orient = 'records')
 
         # metrics
-        target_names = ['0', '1', '2', '3', '4', '5']
+        target_names = ['0', '1', '2']
         classi_report = classification_report(test_data_yTrue_yPred.label, test_data_yTrue_yPred.y_pred, target_names=target_names, digits=4)
         logger.info("classi_report:\n{}".format(classi_report))
 
@@ -176,7 +176,7 @@ def formatData(logger, data_format, model_folder, all_train_data, test_data):
         format_st = time.time()
 
         # Saving the CSV file as a text file to train/test the classifier
-        all_train_data[['label', 'article']].to_csv(model_folder+'train.txt', 
+        all_train_data[['label', 'text']].to_csv(model_folder+'train.txt', 
                                                 index = False, 
                                                 sep = ' ',
                                                 header = None, 
@@ -184,7 +184,7 @@ def formatData(logger, data_format, model_folder, all_train_data, test_data):
                                                 quotechar = "", 
                                                 escapechar = " ")
 
-        test_data[['label', 'article']].to_csv(model_folder+'test.txt', 
+        test_data[['label', 'text']].to_csv(model_folder+'test.txt', 
                                             index = False, 
                                             sep = ' ',
                                             header = None, 

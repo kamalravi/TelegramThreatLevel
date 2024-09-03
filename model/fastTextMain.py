@@ -4,7 +4,7 @@ simplefilter("ignore", category=FutureWarning)
 simplefilter("ignore", category=DeprecationWarning)
 
 # custom built functions
-from logs.get_logs import logger
+from logs.get_logs import setup_logger
 from dataPrep.get_data_fold import data_read
 from utils.utils import set_seed
 
@@ -45,12 +45,12 @@ if __name__=="__main__":
     # logger
     task = "_Train_Test" # Train Test
     taskName = model_select + task
-    root_dir = '/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/DataModelsResults/'
+    root_dir = '/home/ravi/raviProject/DataModelsResults'
     model_folder = root_dir + "/Results/" + model_select + "/"
     print(model_folder)
     log_dir_fname = model_folder + taskName +".log"
     print("log_dir_fname: {}".format(log_dir_fname))
-    logger = logger(log_dir_fname=log_dir_fname)
+    logger = setup_logger(log_dir_fname=log_dir_fname)
     
     logger.info("=========================================================")  
     logger.info("==================== New execution ======================")
@@ -58,11 +58,19 @@ if __name__=="__main__":
     execution_st = time.time()
     
     logger.info("Get inputs data")
-    # Load data. Get K-Fold data. Save 5 fold indices (80% train, 20% test)
-    all_train_data = pd.read_json("/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/Annotate/Sample_10000_For_Training.json", orient='records')
-    all_train_data['openAI-classification'] = all_train_data['openAI-classification'].astype('int64')
-    test_data = pd.read_json("/home/ravi/UCF Dropbox/KAMALAKKANNAN RAVI/guyonDesktop/DATA_AutomatedHarmDetection/Annotate/Sample_1326_For_Testing.json", orient='records')
-    test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
+    # Load data. 
+    train_df = pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_10554_train.json', orient='records')
+    validate_df=pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_dev.json', orient='records') 
+    # Concatenate DataFrames vertically
+    all_train_data = pd.concat([train_df, validate_df], ignore_index=True)
+    # Shuffle the combined DataFrame
+    all_train_data = all_train_data.sample(frac=1).reset_index(drop=True)
+    all_train_data['Label'] = all_train_data['Label'].astype('int64')
+    
+    fileName = '/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_test.json'
+    test_data=pd.read_json(fileName, orient='records')   
+    test_data['Label'] = test_data['Label'].astype('int64')
+
     logger.info("all_train_data.shape {}".format(all_train_data.shape))
     logger.info("test_data.shape {}".format(test_data.shape))
 
@@ -74,11 +82,11 @@ if __name__=="__main__":
     # logger.info("all_train_data {}, all_train_data.shape {}".format(frac, all_train_data.shape))
     # logger.info("frac {}, test_data.shape {}".format(frac, test_data.shape))
 
-    all_train_data = all_train_data.rename(columns={"openAI-classification": "label", "reply": "article"})
-    test_data = test_data.rename(columns={"openAI-classification": "label", "reply": "article"})
+    all_train_data = all_train_data.rename(columns={"Label": "label", "reply": "text"})
+    test_data = test_data.rename(columns={"Label": "label", "reply": "text"})
 
-    all_train_data = all_train_data[["label", "article"]]
-    # test_data = test_data[["label", "article"]]
+    all_train_data = all_train_data[["label", "text"]]
+
     test_data_yTrue_yPred = test_data.copy()
 
     logger.info("all_train_data.head() {}".format(all_train_data.head()))
