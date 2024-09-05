@@ -143,36 +143,61 @@ def LGBM_GridSearchCV(logger, GridSearch, all_train_data, root_dir):
             random_state=42,
             class_weight="balanced"        )
 
-        n_splits = 2
+        n_splits = 5
 
         parameters_lgbm = {
-        'clf__max_depth': [3, 7],
-        'clf__num_leaves': [31, 127],
-        'clf__min_data_in_leaf': [100, 1000],
-        'clf__learning_rate': [0.01, 0.9],
-        'clf__n_estimators': [100, 1000],
-        'clf__reg_alpha': (0, 0.5),
-        'clf__reg_lambda': (0, 0.5),
-        'clf__min_child_samples': (1, 5)
+            'clf__max_depth': [3, 7, 10, 15],
+            'clf__num_leaves': [31, 63, 127, 255],
+            'clf__min_data_in_leaf': [20, 100, 500, 1000],
+            'clf__learning_rate': [0.01, 0.05, 0.1],
+            'clf__n_estimators': [100, 500, 1000, 2000],
+            'clf__reg_alpha': [0, 0.1, 0.5, 1],
+            'clf__reg_lambda': [0, 0.1, 0.5, 1],
+            'clf__min_child_samples': [1, 5, 10, 20]
         }
+
+        parameters_lgbm_reduced = {
+            'clf__max_depth': [3, 7],
+            'clf__num_leaves': [31, 63],
+            'clf__min_data_in_leaf': [100, 500],
+            'clf__learning_rate': [0.01, 0.1],
+            'clf__n_estimators': [100, 500],
+            'clf__reg_alpha': [0, 0.1],
+            'clf__reg_lambda': [0, 0.1],
+            'clf__min_child_samples': [1, 5]
+        }
+
+        # pipeline = GridSearchCV(
+        #     Pipeline([
+        #             ('tfidfvect', TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', 
+        #             encoding='utf-8', ngram_range=(1, 2), stop_words='english')),
+        #             ('clf', estimator)
+        #     ]),
+        #     param_grid=parameters_lgbm,
+        #     cv=StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42),
+        #     scoring='f1_weighted',
+        #     n_jobs=10, # 40 maxes out, 48 CPU cores available
+        #     verbose=2,
+        #     return_train_score=True
+        # )
 
         pipeline = GridSearchCV(
             Pipeline([
-                    ('tfidfvect', TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', 
-                    encoding='utf-8', ngram_range=(1, 2), stop_words='english')),
-                    ('clf', estimator)
+                ('tfidfvect', TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', 
+                encoding='utf-8', ngram_range=(1, 2), stop_words='english')),
+                ('clf', estimator)
             ]),
             param_grid=parameters_lgbm,
             cv=StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42),
             scoring='f1_weighted',
-            n_jobs=10, # 40 maxes out, 48 CPU cores available
+            n_jobs=10,  # Adjust based on available resources
             verbose=2,
             return_train_score=True
         )
 
         # Fit our pipeline
         logger.info('Performing hyper-parameter tuning of LGBM classifiers... ')
-        pipeline.fit(all_train_data.article, all_train_data.label)
+        pipeline.fit(all_train_data.reply, all_train_data.Label)
         logger.info("pipeline.best_estimator_ {}".format(pipeline.best_estimator_)) # save, Estimator that was chosen by the search, i.e. estimator which gave highest score
         logger.info("pipeline.best_score_{}".format(pipeline.best_score_)) # Mean cross-validated score of the best_estimator
         logger.info("pipeline.best_params_{}".format(pipeline.best_params_)) # params of the best best_estimator(model)
