@@ -54,11 +54,12 @@ if __name__=="__main__":
     ite = 1
 
     # Choose model
-    model_select = "OpenAIGPT2" # Options: RoBERTa, Longformer, OpenAIGPT2
+    model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
     model_type = getModelType(model_select)
 
     # if preTrain
     model_preTrain = 0
+    preTrain = 1
 
     # Choose
     model_tokenize=0
@@ -70,7 +71,10 @@ if __name__=="__main__":
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test
     taskName = model_select + task
     root_dir = '/home/ravi/raviProject/DataModelsResults/'
-    model_folder = root_dir + "/Results/" + "FineTune_" + model_select + "_" + str(ite) + "/"
+    if model_preTrain or preTrain:
+        model_folder = root_dir + "Results/" + "PreTrainAgain_FineTune_" + model_select + "_" + str(ite) + "/"
+    else:
+        model_folder = root_dir + "Results/" + "FineTune_" + model_select + "_" + str(ite) + "/"
     print("model_folder: {}".format(model_folder))
     log_dir_fname = model_folder + taskName +".log"
     print("log_dir_fname: {}".format(log_dir_fname))
@@ -82,22 +86,28 @@ if __name__=="__main__":
     execution_st = time.time()
 
     if model_preTrain:
+        preTrain_dataset = pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/remaining_V7_1M_used_for_preTrain.json', orient='records')
+        preTrain_dataset = preTrain_dataset.rename(columns={"reply": "text"})
+        preTrain_dataset = preTrain_dataset.sample(frac=0.001, random_state=42)  # Set a random_state for reproducibility
+        logger.info("unlabeled1M.shape {}".format(preTrain_dataset.shape))
         # Call the function
         Transformers_preTrain(
-            logger=logger,
-            model_select=model_select, 
-            model_type=model_type,
-            model_folder=model_folder,
-            bigData=bigData
+            logger,
+            model_select, 
+            model_type,
+            model_folder,
+            preTrain_dataset
         )
     elif TokenizeCombine:
-        BatchTokenizeCombine(logger, model_folder)
+        BatchTokenizeCombine(logger, preTrain, model_folder)
     elif model_tokenize: 
         # inputs
         logger.info("Get inputs data")
         # Load data. 
         train_df = pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_10554_train.json', orient='records')
-        validate_df=pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_dev.json', orient='records')        
+        validate_df=pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_dev.json', orient='records')      
+        train_df = train_df.sample(frac=0.1, random_state=42)
+        validate_df = validate_df.sample(frac=0.1, random_state=42)  
         logger.info("train_df.shape {}".format(train_df.shape))
         logger.info("validate_df.shape {}".format(validate_df.shape))
 
@@ -110,16 +120,16 @@ if __name__=="__main__":
         
         train_data.reset_index(drop=True, inplace=True)
         val_data.reset_index(drop=True)
-        
+
         # Tokenize
-        BatchTokenize(logger, model_tokenize, model_type, model_select, model_folder, train_data, val_data)
+        BatchTokenize(logger, preTrain, model_type, model_select, model_folder, train_data, val_data)
 
         # end
         logger.info("Execution time {} seconds".format(time.time()-execution_st))
 
     elif model_train: 
         # # Train
-        Transformers_train(logger, model_select, model_train, model_type, model_folder)
+        Transformers_train(logger, preTrain, model_select, model_type, model_folder)
 
         # end
         logger.info("Execution time {} seconds".format(time.time()-execution_st))
@@ -143,7 +153,7 @@ if __name__=="__main__":
         logger.info("test_data.shape {}".format(test_data.shape))
 
         # # Prediction
-        Transformers_predict(logger, model_select, model_predict, test_data, model_folder, fileName)
+        Transformers_predict(logger, preTrain, model_select, test_data, model_folder, fileName)
         
         # end
         logger.info("Execution time {} seconds".format(time.time()-execution_st))
