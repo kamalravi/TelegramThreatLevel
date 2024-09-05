@@ -8,7 +8,6 @@ simplefilter("ignore", category=DeprecationWarning)
 # Suppress all other warnings
 warnings.filterwarnings("ignore", category=Warning)
 
-
 # import libraries
 seed=42
 import os
@@ -35,6 +34,9 @@ import torch
 # Clear GPU memory
 # torch.cuda.empty_cache()
 
+#preTrain
+from transformers import AutoModelForMaskedLM, AutoModelForCausalLM, DataCollatorForLanguageModeling
+
 # preprocess
 from transformers import AutoTokenizer
 from transformers import DataCollatorWithPadding
@@ -55,6 +57,75 @@ import glob
 from natsort import natsorted
 
 # Functions
+
+
+
+def Transformers_preTrain(model_select, model_type, preTrain_dataset, model_folder, mlm=True):
+
+    # Tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_type)
+    
+    # Determine if MLM or Causal Language Modeling
+    if model_select=="RoBERTa": # MLM-based models (RoBERTa, Longformer)
+        model = AutoModelForMaskedLM.from_pretrained(model_type)
+        data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=True, mlm_probability=0.15)
+    elif model_select=="OpenAIGPT2": # Causal Language Modeling (GPT-2)
+        model = AutoModelForCausalLM.from_pretrained(model_type, num_labels=3)
+        data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+
+    # Save the model and tokenizer to the specified folder
+    model.save_pretrained(f"{model_folder}/{model_type}")
+    tokenizer.save_pretrained(f"{model_folder}/{model_type}")
+    
+    print(f"Model {model_type} saved in {model_folder}/{model_type}/")
+
+    # Check if 'text' column is present
+    if 'text' not in preTrain_dataset.column_names:
+        raise ValueError("Dataset must contain a 'text' column.")
+    
+    # Tokenize the dataset
+    def tokenize_function(examples):
+        return tokenizer(examples['text'], padding="max_length", truncation=True)
+    
+    # Apply tokenization to the dataset
+    preTrain_dataset = preTrain_dataset.map(tokenize_function, batched=True)
+
+    # Set format for PyTorch (convert to torch tensors)
+    preTrain_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
+    
+    # Define training arguments
+    batch_size = 8  # Adjust batch size based on your system's capabilities
+    
+    training_args = TrainingArguments(
+        output_dir=model_folder,           # Directory to save model checkpoints
+        evaluation_strategy="no",          # No evaluation during pretraining
+        learning_rate=2e-5,                # Learning rate
+        per_device_train_batch_size=batch_size,  # Training batch size
+        num_train_epochs=3,                # Number of training epochs
+        weight_decay=0.01,                 # Weight decay
+        save_strategy="epoch",             # Save model checkpoint every epoch
+        logging_dir=f"{model_folder}/logs",# Directory for logs
+        report_to="none"                   # No reporting (disable WandB or other tools)
+    )
+    
+    # Initialize Trainer
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=preTrain_dataset,    # Train on the custom dataset
+        data_collator=data_collator        # Use data collator for MLM if applicable
+    )
+    
+    # Start pretraining
+    trainer.train()
+    
+    # Save the final pretrained model
+    model.save_pretrained(f"{model_folder}/final_model")
+    tokenizer.save_pretrained(f"{model_folder}/final_model")
+    
+    print(f"Pretraining completed. Model and tokenizer saved to {model_folder}/final_model")
+
+
 
 def Transformers_predict(logger, model_select, model_predict, test_data, model_folder, fileName):
     ## Load trained model and predict
@@ -128,29 +199,9 @@ def Transformers_predict(logger, model_select, model_predict, test_data, model_f
         test_data_yTrue_yPred.to_json(labeledFile, orient='records')
 
         logger.info("test_data_yPred is \n {}".format(test_data_yTrue_yPred.shape))
-
-        # test_data_yTrue_yPred.to_json(model_folder+"/test_data_yTrue_yPred.json", orient='records')
-        
-        # # metrics
-        # logger.info("==========metrics===========")
-        # target_names = ['0', '1', '2']
-        # classi_report = classification_report(test_data.label, y_pred, target_names=target_names, digits=4)
-        # logger.info("classi_report:\n{}".format(classi_report))
-
-        # logger.info("confusion_matrix:\n {}".format(confusion_matrix(test_data.label, y_pred)))
-
-        # logger.info("Testing f1_weighted score: {}".format(f1_score(test_data.label, y_pred, average='weighted')))
-        # logger.info("Plot ConfusionMatrix")
-        # cm = confusion_matrix(test_data.label, y_pred)
-        # # fig
-        # fig, ax = plt.subplots(figsize=(3,3))
-        # display_labels=target_names
-        # SVM_ConfusionMatrix = sns.heatmap(cm, annot=True, xticklabels=display_labels, yticklabels=display_labels, cmap='Blues', ax=ax, fmt='d')
-        # plt.yticks(va="center")
-        # plt.xticks(va="center")
-        # fig.savefig(model_folder+'/ConfusionMatrix.png', format='png', dpi=1200, bbox_inches='tight')
         
         logger.info("prediction time {} seconds".format(time.time()-predict_st))
+
 
 
 def BatchTokenize(logger, model_tokenize, model_type, model_select, model_folder, train_data, val_data):

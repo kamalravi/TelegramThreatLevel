@@ -31,7 +31,7 @@ from transformers import AutoModelForSequenceClassification, TrainingArguments, 
 # custom built functions
 from logs.get_logs import setup_logger
 from dataPrep.get_data_fold import data_read
-from models.TFs.TFs_model import BatchTokenize, BatchTokenizeCombine, Transformers_train, Transformers_predict
+from models.TFs.TFs_model import BatchTokenize, BatchTokenizeCombine, Transformers_train, Transformers_predict, Transformers_preTrain
 from utils.utils import set_seed
 
 # functions go here
@@ -57,6 +57,9 @@ if __name__=="__main__":
     model_select = "OpenAIGPT2" # Options: RoBERTa, Longformer, OpenAIGPT2
     model_type = getModelType(model_select)
 
+    # if preTrain
+    model_preTrain = 0
+
     # Choose
     model_tokenize=0
     TokenizeCombine=0
@@ -78,7 +81,16 @@ if __name__=="__main__":
     logger.info("=========================================================")
     execution_st = time.time()
 
-    if TokenizeCombine:
+    if model_preTrain:
+        # Call the function
+        Transformers_preTrain(
+            logger=logger,
+            model_select=model_select, 
+            model_type=model_type,
+            model_folder=model_folder,
+            bigData=bigData
+        )
+    elif TokenizeCombine:
         BatchTokenizeCombine(logger, model_folder)
     elif model_tokenize: 
         # inputs
