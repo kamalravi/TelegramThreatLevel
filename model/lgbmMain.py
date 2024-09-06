@@ -29,9 +29,9 @@ if __name__=="__main__":
     model_select = "LGBM" # Options: "SVM_MODEL", "LSTM_MODEL", "TRANSFORMER_MODEL"
 
     # SVM inputs
-    GridSearch= 1
+    GridSearch= 0
     lgbm_train = 0
-    lgbm_predict = 0
+    lgbm_predict = 1
     pred_HoldOut = 0
 
     # logger
@@ -66,19 +66,19 @@ if __name__=="__main__":
     # all_train_data, train_data, dev_data, test_data = data_read(logger, root_dir)
     del train_df, validate_df
 
-    # for id-ying the threshold of data to run HYPERPARAm tuning with 375 models
-    frac = 1
-    all_train_data = all_train_data.sample(frac=frac, replace=True, random_state=42)
-    test_data = test_data.sample(frac=frac, replace=True, random_state=42)
+    # # for id-ying the threshold of data to run HYPERPARAm tuning with 375 models
+    # frac = 1
+    # all_train_data = all_train_data.sample(frac=frac, replace=True, random_state=42)
+    # test_data = test_data.sample(frac=frac, replace=True, random_state=42)
 
-    logger.info("frac {}, all_train_data.shape {}".format(frac, all_train_data.shape))
-    logger.info("frac {}, test_data.shape {}".format(frac, test_data.shape))
+    # logger.info("frac {}, all_train_data.shape {}".format(frac, all_train_data.shape))
+    # logger.info("frac {}, test_data.shape {}".format(frac, test_data.shape))
 
     ### SVM
     logger.info("=========== LGBM ===========")
     # Train one KFold Model: LGBM and save the CV results, and model
     # Our pipeline consists of two phases. First, data will be transformed into vector. Afterwards, it is fed to a LGBM classifier. For the LGBM classifier, we tune the hyper-parameters.
-    LGBM_GridSearchCV(logger, GridSearch, all_train_data, root_dir)
+    # LGBM_GridSearchCV(logger, GridSearch, all_train_data, root_dir)
     # Analyse the above results by loading gs_pipeline_object.pkl
     # check the jupyter notebook: GridSearchCV_Analyse.ipynb
     # Use the best model params: 
@@ -88,7 +88,7 @@ if __name__=="__main__":
     # LGBM_train(logger, lgbm_train, all_train_data, test_data, root_dir)
 
     ## Load trained model and predict
-    # LGBM_predict(logger, lgbm_predict, test_data, root_dir)
+    LGBM_predict(logger, lgbm_predict, test_data, root_dir)
 
     ## Load trained model and predict on hold out set
     # LGBM_HoldOut(logger, pred_HoldOut, root_dir)

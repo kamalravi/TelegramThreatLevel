@@ -44,7 +44,7 @@ def LGBM_HoldOut(logger, pred_HoldOut, root_dir):
             logger.info("===== file: {} =====".format(file.split('/')[-1]))
             df = pd.read_json(file)
             logger.info("df.shape: {}".format(df.shape))
-            y_pred = loaded_LGBMmodel.predict(df.article)
+            y_pred = loaded_LGBMmodel.predict(df.reply)
             # save y_pred
             logger.info("Saving Predictions along with test_data_yTrue in json format")
             test_data_yTrue_yPred = df.copy()
@@ -64,7 +64,7 @@ def LGBM_predict(logger, lgbm_predict, test_data, root_dir):
         logger.info("loading trained SVMmodel")
         loaded_LGBMmodel = joblib.load(root_dir+'/Results/GBM/LGBMmodel.pkl')
         logger.info("Predicting on the trained LGBMmodel")
-        y_pred = loaded_LGBMmodel.predict(test_data.article)
+        y_pred = loaded_LGBMmodel.predict(test_data.reply)
         # save y_pred
         logger.info("Saving Predictions along with test_data_yTrue in json format")
         test_data_yTrue_yPred = test_data.copy()
@@ -72,11 +72,11 @@ def LGBM_predict(logger, lgbm_predict, test_data, root_dir):
         test_data_yTrue_yPred.to_json(root_dir+'/Results/GBM/test_data_yTrue_yPred.json', orient = 'records')
         # metrics
         target_names = ['Liberal', 'Conservative', 'Restricted']
-        classi_report = classification_report(test_data.label, y_pred, target_names=target_names, digits=4)
+        classi_report = classification_report(test_data.Label, y_pred, target_names=target_names, digits=4)
         logger.info("classi_report:\n{}".format(classi_report))
-        logger.info("Testing f1_weighted score: {}".format(f1_score(test_data.label, y_pred, average='weighted')))
+        logger.info("Testing f1_weighted score: {}".format(f1_score(test_data.Label, y_pred, average='weighted')))
         logger.info("Plot ConfusionMatrix")
-        cm = confusion_matrix(test_data.label, y_pred, labels=loaded_LGBMmodel.classes_)
+        cm = confusion_matrix(test_data.Label, y_pred, labels=loaded_LGBMmodel.classes_)
         fig, ax = plt.subplots(figsize=(3,3))
         display_labels=['Liberal', 'Conservative', 'Restricted']
         SVM_ConfusionMatrix = sns.heatmap(cm, annot=True, xticklabels=display_labels, yticklabels=display_labels, cmap='Blues', ax=ax, fmt='d')
@@ -100,14 +100,14 @@ def LGBM_train(logger, lgbm_train, all_train_data, test_data, root_dir):
             objective='multiclass',
             random_state=42,
             class_weight="balanced",
-            learning_rate=0.01,
-            max_depth=7,
-            min_child_samples=1,
-            min_data_in_leaf=100,            
-            n_estimators=1000,
-            num_leaves=31,
-            reg_alpha=0.5,
-            reg_lambda=0.5,
+            learning_rate=0.1,  # Updated from best_params_
+            max_depth=7,        # No change, remains the same
+            min_child_samples=1, # No change, remains the same
+            min_data_in_leaf=100, # No change, remains the same           
+            n_estimators=500,   # Updated from best_params_
+            num_leaves=31,      # No change, remains the same
+            reg_alpha=0,        # Updated from best_params_
+            reg_lambda=0.1,     # Updated from best_params_
             n_jobs=40,
             verbose=1,
             verbose_eval=10
@@ -119,11 +119,11 @@ def LGBM_train(logger, lgbm_train, all_train_data, test_data, root_dir):
                         ('clf', estimator)])
         
         logger.info("================ Fit starts ====================")
-        LGBMmodel.fit(all_train_data.article, all_train_data.label)
+        LGBMmodel.fit(all_train_data.reply, all_train_data.Label)
         logger.info("================ Fit ends ====================")
 
-        logger.info("Training accuracy: {}".format(LGBMmodel.score(all_train_data.article, all_train_data.label)))
-        logger.info("Testing accuracy: {}".format(LGBMmodel.score(test_data.article, test_data.label)))
+        logger.info("Training accuracy: {}".format(LGBMmodel.score(all_train_data.reply, all_train_data.Label)))
+        logger.info("Testing accuracy: {}".format(LGBMmodel.score(test_data.reply, test_data.Label)))
         # Save trained model with fold number
         joblib.dump(LGBMmodel, root_dir+'/Results/GBM/LGBMmodel.pkl')
         logger.info("SVMmodel train time {} seconds".format(time.time()-LGBMmodel_st))
@@ -145,16 +145,16 @@ def LGBM_GridSearchCV(logger, GridSearch, all_train_data, root_dir):
 
         n_splits = 5
 
-        parameters_lgbm = {
-            'clf__max_depth': [3, 7, 10, 15],
-            'clf__num_leaves': [31, 63, 127, 255],
-            'clf__min_data_in_leaf': [20, 100, 500, 1000],
-            'clf__learning_rate': [0.01, 0.05, 0.1],
-            'clf__n_estimators': [100, 500, 1000, 2000],
-            'clf__reg_alpha': [0, 0.1, 0.5, 1],
-            'clf__reg_lambda': [0, 0.1, 0.5, 1],
-            'clf__min_child_samples': [1, 5, 10, 20]
-        }
+        # parameters_lgbm = {
+        #     'clf__max_depth': [3, 7, 10, 15],
+        #     'clf__num_leaves': [31, 63, 127, 255],
+        #     'clf__min_data_in_leaf': [20, 100, 500, 1000],
+        #     'clf__learning_rate': [0.01, 0.05, 0.1],
+        #     'clf__n_estimators': [100, 500, 1000, 2000],
+        #     'clf__reg_alpha': [0, 0.1, 0.5, 1],
+        #     'clf__reg_lambda': [0, 0.1, 0.5, 1],
+        #     'clf__min_child_samples': [1, 5, 10, 20]
+        # }
 
         parameters_lgbm_reduced = {
             'clf__max_depth': [3, 7],
@@ -187,7 +187,7 @@ def LGBM_GridSearchCV(logger, GridSearch, all_train_data, root_dir):
                 encoding='utf-8', ngram_range=(1, 2), stop_words='english')),
                 ('clf', estimator)
             ]),
-            param_grid=parameters_lgbm,
+            param_grid=parameters_lgbm_reduced,
             cv=StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42),
             scoring='f1_weighted',
             n_jobs=10,  # Adjust based on available resources
