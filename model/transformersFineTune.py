@@ -51,21 +51,21 @@ def getModelType(model_select):
 if __name__=="__main__":
     
     ## inputs
-    ite = 1
+    ite = 2
 
     # Choose model
     model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
     model_type = getModelType(model_select)
 
     # if preTrain
-    model_preTrain = 0
-    preTrain = 1
+    model_preTrain = 1
+    preTrain = 0
 
     # Choose
     model_tokenize=0
     TokenizeCombine=0
     model_train=0
-    model_predict=1
+    model_predict=0
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test
@@ -88,7 +88,7 @@ if __name__=="__main__":
     if model_preTrain:
         preTrain_dataset = pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/remaining_V7_1M_used_for_preTrain.json', orient='records')
         preTrain_dataset = preTrain_dataset.rename(columns={"reply": "text"})
-        preTrain_dataset = preTrain_dataset.sample(frac=0.001, random_state=42)  # Set a random_state for reproducibility
+        # preTrain_dataset = preTrain_dataset.sample(frac=0.001, random_state=42)  # Set a random_state for reproducibility
         logger.info("unlabeled1M.shape {}".format(preTrain_dataset.shape))
         # Call the function
         Transformers_preTrain(

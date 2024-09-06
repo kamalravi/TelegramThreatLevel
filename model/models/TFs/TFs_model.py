@@ -109,20 +109,21 @@ def Transformers_preTrain(logger, model_select, model_type, model_folder, preTra
     preTrain_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask'])
 
     logger.info("======= Define PRE training arguments ==========")
-    batch_size = 1
+    batch_size = 2
     
     training_args = TrainingArguments(
         seed=seed,
         output_dir=f"{model_folder}/preTrainedModel",
         evaluation_strategy="no",  # No evaluation during pretraining
-        learning_rate=2e-5,
+        learning_rate=1e-4,
         per_device_train_batch_size=batch_size,
-        gradient_accumulation_steps=4,
-        num_train_epochs=2,
+        gradient_accumulation_steps=8,
+        num_train_epochs=1,
         weight_decay=0.01,
-        save_strategy="epoch",  # Save every epoch
+        save_strategy="steps",  # Save every epoch
+        save_steps=100,
         logging_dir=f"{model_folder}/logs",  # Log directory
-        logging_steps=16,
+        logging_steps=8,
         report_to="wandb",  # Report to WandB
         save_total_limit=3,  # Save only the best checkpoints
         load_best_model_at_end=False,  # Disable loading best model
