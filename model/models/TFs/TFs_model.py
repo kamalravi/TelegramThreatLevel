@@ -111,22 +111,42 @@ def Transformers_preTrain(logger, model_select, model_type, model_folder, preTra
     logger.info("======= Define PRE training arguments ==========")
     batch_size = 2
     
+    # training_args = TrainingArguments(
+    #     seed=seed,
+    #     output_dir=f"{model_folder}/preTrainedModel",
+    #     evaluation_strategy="no",  # No evaluation during pretraining
+    #     learning_rate=1e-4,
+    #     per_device_train_batch_size=batch_size,
+    #     gradient_accumulation_steps=32,
+    #     num_train_epochs=2,
+    #     weight_decay=0.01,
+    #     save_strategy="steps",  # Save every epoch
+    #     save_steps=100,
+    #     logging_dir=f"{model_folder}/logs",  # Log directory
+    #     logging_steps=32,
+    #     report_to="wandb",  # Report to WandB
+    #     save_total_limit=3,  # Save only the best checkpoints
+    #     load_best_model_at_end=False,  # Disable loading best model
+    # )
+
+    resume_from_checkpoint = "/home/ravi/raviProject/DataModelsResults/Results/PreTrainAgain_FineTune_RoBERTa_2/preTrainedModel/"
     training_args = TrainingArguments(
         seed=seed,
         output_dir=f"{model_folder}/preTrainedModel",
         evaluation_strategy="no",  # No evaluation during pretraining
         learning_rate=1e-4,
         per_device_train_batch_size=batch_size,
-        gradient_accumulation_steps=8,
-        num_train_epochs=1,
+        gradient_accumulation_steps=32,
+        num_train_epochs=2,  # Update to continue training for 2 more epochs
         weight_decay=0.01,
         save_strategy="steps",  # Save every epoch
         save_steps=100,
         logging_dir=f"{model_folder}/logs",  # Log directory
-        logging_steps=8,
+        logging_steps=32,
         report_to="wandb",  # Report to WandB
         save_total_limit=3,  # Save only the best checkpoints
         load_best_model_at_end=False,  # Disable loading best model
+        resume_from_checkpoint=resume_from_checkpoint  # Allow resuming from checkpoint
     )
     
     logger.info("======= Initialize Trainer ==========")
@@ -138,9 +158,13 @@ def Transformers_preTrain(logger, model_select, model_type, model_folder, preTra
         compute_metrics=compute_metrics  # Compute perplexity from loss
     )
     
-    logger.info("======= Start pretraining ==========")
-    trainer.train()
+    # logger.info("======= Start pretraining ==========")
+    # trainer.train()
+
+    logger.info("======= Resume pretraining from checkpoint or start new ==========")
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)  # Resume from previous checkpoint if exists
     
+
     logger.info("======= Save the best pretrained model ==========")
     model.save_pretrained(f"{model_folder}/preTrainedModel")
     tokenizer.save_pretrained(f"{model_folder}/preTrainedModel")
