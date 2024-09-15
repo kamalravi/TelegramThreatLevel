@@ -127,72 +127,29 @@ def Transformers_preTrain(logger, model_select, model_type, model_folder, preTra
     logger.info("======= Define PRE training arguments ==========")
     batch_size = 1
 
-    # # Pretraining Arguments with RoBERTa-like setup
-    # training_args = TrainingArguments(
-    #     seed=seed,
-    #     output_dir=f"{model_folder}/preTrainedModel",
-    #     evaluation_strategy="no",  # No validation during pretraining
-    #     learning_rate=1e-4,  # Start with a small learning rate
-    #     warmup_steps=1000,  # RoBERTa uses a learning rate warmup (you can adjust this based on dataset size)
-    #     per_device_train_batch_size=batch_size,  # Adjust this based on available GPU memory
-    #     gradient_accumulation_steps=32,  # To increase effective batch size
-    #     num_train_epochs=3,  # Train for a fixed number of epochs
-    #     weight_decay=0.01,  # Regularization similar to RoBERTa
-    #     save_strategy="steps",  # Save at certain steps
-    #     save_steps=100,  # Save every 1000 steps (adjust as needed)
-    #     logging_dir=f"{model_folder}/logs",  # Log directory
-    #     logging_steps=100,  # Log training status every 100 steps
-    #     report_to="wandb",  # Use WandB for logging (can change to 'none' if not using WandB)
-    #     save_total_limit=3,  # Keep only the best checkpoints
-    #     load_best_model_at_end=False,  # No best model logic needed for pretraining
-    # )
-
-    # Pretraining Arguments with RoBERTa-like setup==RESUME loss inf
-    # training_args = TrainingArguments(
-    #     seed=seed,
-    #     output_dir=f"{model_folder}/preTrainedModel",
-    #     evaluation_strategy="no",  # No validation during pretraining
-    #     learning_rate=1e-4,  # Start with a small learning rate
-    #     warmup_steps=1000,  # RoBERTa uses a learning rate warmup (you can adjust this based on dataset size)
-    #     per_device_train_batch_size=batch_size,  # Adjust this based on available GPU memory
-    #     gradient_accumulation_steps=64,  # To increase effective batch size
-    #     num_train_epochs=3,  # Train for a fixed number of epochs
-    #     weight_decay=0.01,  # Regularization similar to RoBERTa
-    #     save_strategy="steps",  # Save at certain steps
-    #     save_steps=100,  # Save every 1000 steps (adjust as needed)
-    #     logging_dir=f"{model_folder}/logs",  # Log directory
-    #     logging_steps=100,  # Log training status every 100 steps
-    #     report_to="wandb",  # Use WandB for logging (can change to 'none' if not using WandB)
-    #     save_total_limit=3,  # Keep only the best checkpoints
-    #     load_best_model_at_end=False,  # No best model logic needed for pretraining
-    #     # ignore_data_skip=True  # Add this argument
-    # )
-
-# it works
-    # training_args = TrainingArguments(
-    #     seed=seed,
-    #     output_dir=f"{model_folder}/preTrainedModel",
-    #     evaluation_strategy="no",  # No validation during pretraining
-    #     learning_rate=2.5359e-5,  # Lower learning rate to address OOM and stability issues
-    #     # warmup_steps=1000,  # Warm-up steps for smooth learning rate increase
-    #     per_device_train_batch_size=batch_size,
-    #     gradient_accumulation_steps=32,
-    #     num_train_epochs=3,
-    #     weight_decay=0.01,
-    #     save_strategy="steps",
-    #     save_steps=10,
-    #     logging_dir=f"{model_folder}/logs",
-    #     logging_steps=10,
-    #     report_to="wandb",
-    #     save_total_limit=3,
-    #     load_best_model_at_end=False,
-    #     max_grad_norm=0.5,  # Gradient clipping
-    #     fp16=True,  # Enable mixed precision training
-    # )
+    # Pretraining Arguments with RoBERTa-like setup
+    training_args_pretrain = TrainingArguments(
+        seed=seed,
+        output_dir=f"{model_folder}/preTrainedModel",
+        evaluation_strategy="no",  # No validation during pretraining
+        learning_rate=1e-4,  # Start with a small learning rate
+        warmup_steps=1000,  # RoBERTa uses a learning rate warmup (you can adjust this based on dataset size)
+        per_device_train_batch_size=batch_size,  # Adjust this based on available GPU memory
+        gradient_accumulation_steps=32,  # To increase effective batch size
+        num_train_epochs=3,  # Train for a fixed number of epochs
+        weight_decay=0.01,  # Regularization similar to RoBERTa
+        save_strategy="steps",  # Save at certain steps
+        save_steps=100,  # Save every 1000 steps (adjust as needed)
+        logging_dir=f"{model_folder}/logs",  # Log directory
+        logging_steps=100,  # Log training status every 100 steps
+        report_to="wandb",  # Use WandB for logging (can change to 'none' if not using WandB)
+        save_total_limit=3,  # Keep only the best checkpoints
+        load_best_model_at_end=False,  # No best model logic needed for pretraining
+    )
 
 # this works but goes to inf soon MUST are learning_rate=2.5359e-5 and gradient_accumulation_steps=32,
 # now try with fp16=True and max_grad_norm=0.5
-    training_args = TrainingArguments(
+    training_args_pretrain_resume = TrainingArguments(
         seed=seed,
         output_dir=f"{model_folder}/preTrainedModel",
         evaluation_strategy="no",  # No validation during pretraining
@@ -213,12 +170,10 @@ def Transformers_preTrain(logger, model_select, model_type, model_folder, preTra
         fp16=True,  # Enable mixed precision training
     )
 
-    # run for 1 epoch = 7,812 steps
-    # 0.7 epocsh = 5436
-    # but if we run 6000 steps with bs=1, then it is 3000 steps with bs=2. when we add it 9000. in total we ran it for 12000 steps
-    # so stop training when steps hit 15000 (9k baseline)
-    #With a batch size of 1 and gradient accumulation steps set to 32, the total optimization steps for 3 epochs would be 23,436. Now that you want to only run the remaining 0.7 epochs, we need to calculate the proportion of steps accordingly. Key Information: Total steps for 3 epochs with batch size 1 and gradient accumulation 32: 23,436. Completed steps (with batch size 2 and gradient accumulation 32): 9,000 steps. Steps remaining for 3 epochs: 23 , 436 − 9 , 000 = 14 , 436 23,436−9,000=14,436. Steps for 0.7 Epochs: Steps per epoch: 23 , 436 3 = 7 , 812 3 23,436 ​ =7,812. Steps for 0.7 epochs: 7 , 812 × 0.7 ≈ 5 , 468 7,812×0.7≈5,468. So, to complete the remaining 0.7 epochs, you need to run 5,468 more steps.
-
+    if resume:
+        training_args=training_args_pretrain_resume
+    else:
+        training_args=training_args_pretrain
 
     logger.info("======= Initialize Trainer ==========")
     # Pretraining Trainer setup without metrics
