@@ -49,9 +49,9 @@ def getModelType(model_select):
 
 # main
 if __name__=="__main__":
-    
+
     ## inputs
-    ite = 2
+    ite = 400
 
     # Choose model
     model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
@@ -106,8 +106,8 @@ if __name__=="__main__":
         # Load data. 
         train_df = pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_10554_train.json', orient='records')
         validate_df=pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_dev.json', orient='records')      
-        train_df = train_df.sample(frac=0.1, random_state=42)
-        validate_df = validate_df.sample(frac=0.1, random_state=42)  
+        # train_df = train_df.sample(frac=0.1, random_state=42)
+        # validate_df = validate_df.sample(frac=0.1, random_state=42)  
         logger.info("train_df.shape {}".format(train_df.shape))
         logger.info("validate_df.shape {}".format(validate_df.shape))
 

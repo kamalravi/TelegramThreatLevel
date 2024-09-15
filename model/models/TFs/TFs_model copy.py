@@ -49,7 +49,7 @@ import pandas as pd
 import evaluate
 from sklearn.utils.class_weight import compute_class_weight
 from torch import nn
-from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, EarlyStoppingCallback
+from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
 
 # prediction
 
@@ -80,15 +80,9 @@ def Transformers_preTrain(logger, model_select, model_type, model_folder, preTra
 
     if resume:
         logger.info("======= Resume pretraining from checkpoint or start new ==========")
-        resume_from_checkpoint = "/home/ravi/raviProject/DataModelsResults/Results/PreTrainAgain_FineTune_RoBERTa_400/preTrainedModel/checkpoint-9000"
+        resume_from_checkpoint = "/home/ravi/raviProject/DataModelsResults/Results/PreTrainAgain_FineTune_RoBERTa_2/preTrainedModel/checkpoint-3900"
         logger.info(f"Model resume_from_checkpoint saved is {resume_from_checkpoint}")
-
-        # tokenizer = AutoTokenizer.from_pretrained(resume_from_checkpoint)
-        tokenizer = AutoTokenizer.from_pretrained(model_type)
-        if tokenizer.pad_token is None:
-            logger.info("Padding token is not set. Adding a pad token...")
-            tokenizer.add_special_tokens({'pad_token': '[PAD]'})
-
+        tokenizer = AutoTokenizer.from_pretrained(resume_from_checkpoint)
         model = AutoModelForMaskedLM.from_pretrained(resume_from_checkpoint)
         data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=True, mlm_probability=0.15)
     else:
@@ -125,120 +119,60 @@ def Transformers_preTrain(logger, model_select, model_type, model_folder, preTra
     preTrain_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask'])
 
     logger.info("======= Define PRE training arguments ==========")
-    batch_size = 1
-
-    # # Pretraining Arguments with RoBERTa-like setup
+    batch_size = 2
+    
     # training_args = TrainingArguments(
     #     seed=seed,
     #     output_dir=f"{model_folder}/preTrainedModel",
-    #     evaluation_strategy="no",  # No validation during pretraining
-    #     learning_rate=1e-4,  # Start with a small learning rate
-    #     warmup_steps=1000,  # RoBERTa uses a learning rate warmup (you can adjust this based on dataset size)
-    #     per_device_train_batch_size=batch_size,  # Adjust this based on available GPU memory
-    #     gradient_accumulation_steps=32,  # To increase effective batch size
-    #     num_train_epochs=3,  # Train for a fixed number of epochs
-    #     weight_decay=0.01,  # Regularization similar to RoBERTa
-    #     save_strategy="steps",  # Save at certain steps
-    #     save_steps=100,  # Save every 1000 steps (adjust as needed)
-    #     logging_dir=f"{model_folder}/logs",  # Log directory
-    #     logging_steps=100,  # Log training status every 100 steps
-    #     report_to="wandb",  # Use WandB for logging (can change to 'none' if not using WandB)
-    #     save_total_limit=3,  # Keep only the best checkpoints
-    #     load_best_model_at_end=False,  # No best model logic needed for pretraining
-    # )
-
-    # Pretraining Arguments with RoBERTa-like setup==RESUME loss inf
-    # training_args = TrainingArguments(
-    #     seed=seed,
-    #     output_dir=f"{model_folder}/preTrainedModel",
-    #     evaluation_strategy="no",  # No validation during pretraining
-    #     learning_rate=1e-4,  # Start with a small learning rate
-    #     warmup_steps=1000,  # RoBERTa uses a learning rate warmup (you can adjust this based on dataset size)
-    #     per_device_train_batch_size=batch_size,  # Adjust this based on available GPU memory
-    #     gradient_accumulation_steps=64,  # To increase effective batch size
-    #     num_train_epochs=3,  # Train for a fixed number of epochs
-    #     weight_decay=0.01,  # Regularization similar to RoBERTa
-    #     save_strategy="steps",  # Save at certain steps
-    #     save_steps=100,  # Save every 1000 steps (adjust as needed)
-    #     logging_dir=f"{model_folder}/logs",  # Log directory
-    #     logging_steps=100,  # Log training status every 100 steps
-    #     report_to="wandb",  # Use WandB for logging (can change to 'none' if not using WandB)
-    #     save_total_limit=3,  # Keep only the best checkpoints
-    #     load_best_model_at_end=False,  # No best model logic needed for pretraining
-    #     # ignore_data_skip=True  # Add this argument
-    # )
-
-# it works
-    # training_args = TrainingArguments(
-    #     seed=seed,
-    #     output_dir=f"{model_folder}/preTrainedModel",
-    #     evaluation_strategy="no",  # No validation during pretraining
-    #     learning_rate=2.5359e-5,  # Lower learning rate to address OOM and stability issues
-    #     # warmup_steps=1000,  # Warm-up steps for smooth learning rate increase
+    #     evaluation_strategy="no",  # No evaluation during pretraining
+    #     learning_rate=1e-4,
     #     per_device_train_batch_size=batch_size,
     #     gradient_accumulation_steps=32,
-    #     num_train_epochs=3,
+    #     num_train_epochs=2,
     #     weight_decay=0.01,
-    #     save_strategy="steps",
-    #     save_steps=10,
-    #     logging_dir=f"{model_folder}/logs",
-    #     logging_steps=10,
-    #     report_to="wandb",
-    #     save_total_limit=3,
-    #     load_best_model_at_end=False,
-    #     max_grad_norm=0.5,  # Gradient clipping
-    #     fp16=True,  # Enable mixed precision training
+    #     save_strategy="steps",  # Save every epoch
+    #     save_steps=100,
+    #     logging_dir=f"{model_folder}/logs",  # Log directory
+    #     logging_steps=32,
+    #     report_to="wandb",  # Report to WandB
+    #     save_total_limit=3,  # Save only the best checkpoints
+    #     load_best_model_at_end=False,  # Disable loading best model
     # )
 
-# this works but goes to inf soon MUST are learning_rate=2.5359e-5 and gradient_accumulation_steps=32,
-# now try with fp16=True and max_grad_norm=0.5
     training_args = TrainingArguments(
         seed=seed,
         output_dir=f"{model_folder}/preTrainedModel",
-        evaluation_strategy="no",  # No validation during pretraining
-        learning_rate=2.5359e-5,  # Lower learning rate to address OOM and stability issues
-        # warmup_steps=1000,  # Warm-up steps for smooth learning rate increase
+        evaluation_strategy="no",  # No evaluation during pretraining
+        learning_rate=1e-4,
         per_device_train_batch_size=batch_size,
         gradient_accumulation_steps=32,
-        num_train_epochs=3,
-        weight_decay=0.01, #e-5
-        save_strategy="steps",
-        save_steps=10,
-        logging_dir=f"{model_folder}/logs",
-        logging_steps=10,
-        report_to="wandb",
-        save_total_limit=3,
-        load_best_model_at_end=False,
-        max_grad_norm=0.5,  # Gradient clipping
-        fp16=True,  # Enable mixed precision training
-    )
-
-    # run for 1 epoch = 7,812 steps
-    # 0.7 epocsh = 5436
-    # but if we run 6000 steps with bs=1, then it is 3000 steps with bs=2. when we add it 9000. in total we ran it for 12000 steps
-    # so stop training when steps hit 15000 (9k baseline)
-    #With a batch size of 1 and gradient accumulation steps set to 32, the total optimization steps for 3 epochs would be 23,436. Now that you want to only run the remaining 0.7 epochs, we need to calculate the proportion of steps accordingly. Key Information: Total steps for 3 epochs with batch size 1 and gradient accumulation 32: 23,436. Completed steps (with batch size 2 and gradient accumulation 32): 9,000 steps. Steps remaining for 3 epochs: 23 , 436 − 9 , 000 = 14 , 436 23,436−9,000=14,436. Steps for 0.7 Epochs: Steps per epoch: 23 , 436 3 = 7 , 812 3 23,436 ​ =7,812. Steps for 0.7 epochs: 7 , 812 × 0.7 ≈ 5 , 468 7,812×0.7≈5,468. So, to complete the remaining 0.7 epochs, you need to run 5,468 more steps.
-
-
+        num_train_epochs=2,  # Update to continue training for 2 more epochs
+        weight_decay=0.01,
+        save_strategy="steps",  # Save every epoch
+        save_steps=100,
+        logging_dir=f"{model_folder}/logs",  # Log directory
+        logging_steps=32,
+        report_to="wandb",  # Report to WandB
+        save_total_limit=3,  # Save only the best checkpoints
+        load_best_model_at_end=False,  # Disable loading best model
+        resume_from_checkpoint=resume_from_checkpoint  # Allow resuming from checkpoint
+    ) 
+    
     logger.info("======= Initialize Trainer ==========")
-    # Pretraining Trainer setup without metrics
     trainer = Trainer(
         model=model,
         args=training_args,
         train_dataset=preTrain_dataset,
-        data_collator=data_collator  # MLM masking
+        data_collator=data_collator,
+        compute_metrics=compute_metrics  # Compute perplexity from loss
     )
+    
+    # logger.info("======= Start pretraining ==========")
+    # trainer.train()
 
-    try:
-        if resume:
-            logger.info("Resuming pretraining.")
-            trainer.train(resume_from_checkpoint=resume_from_checkpoint)
-        else:
-            logger.info("======= Start pretraining ==========")
-            trainer.train()
-    except Exception as e:
-        logger.error(f"Training crashed: {e}")
-        raise
+    logger.info("======= Resume pretraining from checkpoint or start new ==========")
+    trainer.train(resume_from_checkpoint=resume_from_checkpoint)  # Resume from previous checkpoint if exists
+    
 
     logger.info("======= Save the best pretrained model ==========")
     model.save_pretrained(f"{model_folder}/preTrainedModel")
