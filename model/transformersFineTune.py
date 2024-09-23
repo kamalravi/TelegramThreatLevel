@@ -58,14 +58,14 @@ if __name__=="__main__":
     model_type = getModelType(model_select)
 
     # if preTrain
-    model_preTrain = 1
-    preTrain = 0
+    model_preTrain = 0
+    preTrain = 1
 
     # Choose
     model_tokenize=0
     TokenizeCombine=0
     model_train=0
-    model_predict=0
+    model_predict=1
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test

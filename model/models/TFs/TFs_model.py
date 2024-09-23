@@ -205,7 +205,8 @@ def Transformers_preTrain(logger, model_select, model_type, model_folder, preTra
 def Transformers_predict(logger, preTrain, model_select, test_data, model_folder, fileName):
 
     if preTrain:
-        model_folder=model_folder + "preTrainedModel/CustomPreTrainedClassifier/"     
+        model_folder=model_folder + "preTrainedModel/CustomPreTrainedClassifier/"    
+        # model_folder = model_folder + "checkpoint-1472/" 
         logger.info("model_folder is \n {}".format(model_folder)) 
         logger.info("======== load FineTuned classifier custom model tokenizer=========")
         tokenizer = AutoTokenizer.from_pretrained(model_folder)  
@@ -217,7 +218,7 @@ def Transformers_predict(logger, preTrain, model_select, test_data, model_folder
     else:
         logger.info("=======loading FineTuned model==========")
         # Tokenize the text and return PyTorch tensors:
-        # model_folder = model_folder + "checkpoint-7664/"
+        # model_folder = model_folder + "checkpoint-1472/"
         tokenizer = AutoTokenizer.from_pretrained(model_folder)
         logger.info("model_folder saved is \n {}".format(model_folder))
 
@@ -473,17 +474,17 @@ def Transformers_train(logger,  preTrain, model_select, model_type, model_folder
 
     logger.info("======== Model args =========")
 
-    batch_size=1
+    batch_size=2
 
     training_args = TrainingArguments(
         output_dir=f"{model_folder}/CustomPreTrainedClassifier",
         seed=seed,
         learning_rate=2e-5,
         per_device_train_batch_size=batch_size, # to avoid OOM
-        gradient_accumulation_steps=4, # to avoid OOM
+        gradient_accumulation_steps=2, # to avoid OOM
         per_device_eval_batch_size=batch_size, # to avoid OOM
-        num_train_epochs=1, #prev runs saturated at less than 50/100
-        weight_decay=0.01,
+        num_train_epochs=100, #prev runs saturated at less than 50/100
+        weight_decay=0.01, # may reduce it if the model doesn't exceed prev results
         evaluation_strategy="steps",
         save_strategy="steps",
         load_best_model_at_end=True,
