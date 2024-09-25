@@ -142,7 +142,9 @@ if __name__=="__main__":
         # all_train_data, train_data, val_data, test_data = data_read(logger, root_dir)
         # del all_train_data,train_data, val_data
         
-        fileName = '/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_test.json'
+        fileName = "/home/ravi/raviProject/DataModelsResults/Data/remaining_V7_1M_NotUsed.json" # holdout set
+        # fileName = '/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_test.json'
+
         test_data=pd.read_json(fileName, orient='records')   
         # test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
         logger.info("test_data.shape {}".format(test_data.shape))

@@ -257,10 +257,11 @@ def Transformers_predict(logger, preTrain, model_select, test_data, model_folder
     logger.info("=======Prediction starts==========")
     # GPU prediction
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    logger.info("device \n {}".format(device))
     model.to(device)
 
     y_pred=[]
-    for count, chunk in enumerate(np.array_split(test_data, 1000)):
+    for count, chunk in enumerate(np.array_split(test_data, 10000)):
         print(count, chunk.shape)            
         inputs = preprocess_text(chunk['text'].values.tolist())
         # Move inputs to device
@@ -270,6 +271,7 @@ def Transformers_predict(logger, preTrain, model_select, test_data, model_folder
             logits = model(**inputs).logits
             # Move logits to CPU and convert to numpy array
             y_pred.append(torch.softmax(logits, dim=1).argmax(dim=1).cpu().numpy().tolist())
+            del logits, inputs, chunk, count
 
     y_pred = [item for items in y_pred for item in items]
     # Add the predictions to the DataFrame
