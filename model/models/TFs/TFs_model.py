@@ -260,28 +260,53 @@ def Transformers_predict(logger, preTrain, model_select, test_data, model_folder
     logger.info("device \n {}".format(device))
     model.to(device)
 
-    y_pred=[]
-    for count, chunk in enumerate(np.array_split(test_data, 10000)):
+    # y_pred=[]
+    # for count, chunk in enumerate(np.array_split(test_data, 10000)):
+    #     print(count, chunk.shape)            
+    #     inputs = preprocess_text(chunk['text'].values.tolist())
+    #     # Move inputs to device
+    #     inputs = {k: v.to(device) for k, v in inputs.items()}
+    #     # Make predictions on the entire DataFrame
+    #     with torch.no_grad():
+    #         logits = model(**inputs).logits
+    #         # Move logits to CPU and convert to numpy array
+    #         y_pred.append(torch.softmax(logits, dim=1).argmax(dim=1).cpu().numpy().tolist())
+    #         del logits, inputs, chunk, count
+    # y_pred = [item for items in y_pred for item in items]
+
+
+    y_pred = []        # To store predicted class labels
+    prob_scores = []   # To store probability scores
+
+    for count, chunk in enumerate(np.array_split(test_data, 1000)):
         print(count, chunk.shape)            
         inputs = preprocess_text(chunk['text'].values.tolist())
+        
         # Move inputs to device
         inputs = {k: v.to(device) for k, v in inputs.items()}
+        
         # Make predictions on the entire DataFrame
         with torch.no_grad():
             logits = model(**inputs).logits
-            # Move logits to CPU and convert to numpy array
-            y_pred.append(torch.softmax(logits, dim=1).argmax(dim=1).cpu().numpy().tolist())
-            del logits, inputs, chunk, count
+            
+            # Get the probability scores using softmax
+            probabilities = torch.softmax(logits, dim=1)
+            
+            # Store predicted class labels and probability scores
+            y_pred.append(probabilities.argmax(dim=1).cpu().numpy().tolist())
+            prob_scores.append(probabilities.cpu().numpy())  # Append the probability scores
 
-    y_pred = [item for items in y_pred for item in items]
-    # Add the predictions to the DataFrame
-    test_data_yTrue_yPred = test_data.copy()
-    test_data_yTrue_yPred["y_pred"] = y_pred
+        del logits, inputs, chunk, count
+
+    # Convert y_pred and prob_scores to numpy arrays if needed
+    y_pred = [item for items in y_pred for item in items]  # Combine all predictions into a single array
+    prob_scores = [item for items in prob_scores for item in items]  # Combine all probability scores into a single array    
     
     # save y_pred
     logger.info("Saving Predictions along with test_data_yTrue in json format")
     test_data_yTrue_yPred = test_data.copy()
     test_data_yTrue_yPred['y_pred'] = y_pred
+    test_data_yTrue_yPred['prob_scores'] = prob_scores
 
     logger.info("test_data_yPred saved in \n {}".format(labeledFile))
 
