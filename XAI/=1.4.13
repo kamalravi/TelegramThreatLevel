@@ -1,4 +1,0 @@
-Requirement already satisfied: sacrebleu in /home/ravi/miniconda3/envs/transformers/lib/python3.8/site-packages (1.4.5)
-Requirement already satisfied: typing in /home/ravi/miniconda3/envs/transformers/lib/python3.8/site-packages (from sacrebleu) (3.7.4.3)
-Requirement already satisfied: portalocker in /home/ravi/miniconda3/envs/transformers/lib/python3.8/site-packages (from sacrebleu) (2.10.1)
-Requirement already satisfied: mecab-python3 in /home/ravi/miniconda3/envs/transformers/lib/python3.8/site-packages (from sacrebleu) (1.0.9)
