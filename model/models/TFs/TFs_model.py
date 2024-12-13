@@ -207,6 +207,7 @@ def Transformers_predict(logger, preTrain, model_select, test_data, model_folder
     if preTrain:
         model_folder=model_folder + "preTrainedModel/CustomPreTrainedClassifier/"    
         # model_folder = model_folder + "checkpoint-1472/" 
+        # model_folder = "/home/ravi/raviProject/DataModelsResults/Results/PreTrainAgain_FineTune_RoBERTa_400/preTrainedModel/CustomPreTrainedClassifier/checkpoint-66000" 
         logger.info("model_folder is \n {}".format(model_folder)) 
         logger.info("======== load FineTuned classifier custom model tokenizer=========")
         tokenizer = AutoTokenizer.from_pretrained(model_folder)  
@@ -214,6 +215,7 @@ def Transformers_predict(logger, preTrain, model_select, test_data, model_folder
         logger.info("========load FineTuned classifier custom model =========")
         model = AutoModelForSequenceClassification.from_pretrained(model_folder, num_labels=3)        
 
+        # print(fileName, model_select)
         labeledFile = fileName.split('.')[0] + "_yPred_preTrainFT_" + model_select +  ".json"
     else:
         logger.info("=======loading FineTuned model==========")

@@ -143,7 +143,8 @@ if __name__=="__main__":
         # del all_train_data,train_data, val_data
         
         # fileName = "/home/ravi/raviProject/DataModelsResults/Data/remaining_V7_1M_NotUsed.json" # holdout set
-        fileName = '/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_test.json'
+        # fileName = '/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_test.json'
+        fileName = "/home/ravi/raviProject/DATA/Annotate/iterData/iter7_Labeled_15076_sampled_forNextIter.json"
 
         test_data=pd.read_json(fileName, orient='records')   
         # test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
