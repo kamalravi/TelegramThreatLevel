@@ -340,12 +340,21 @@ def BatchTokenize(logger, preTrain, model_type, model_select, model_folder, trai
             tokenizer.pad_token = tokenizer.eos_token
     
     # function to tokenize text and truncate seq to be no longer than maximum input length:
+    # def preprocess_function(batch):
+    #     tokenized_input = tokenizer(batch["text"], truncation=True)
+    #     return tokenized_input
     def preprocess_function(batch):
-        tokenized_input = tokenizer(batch["text"], truncation=True)
-        return tokenized_input
-    
+        if "text" not in batch or not batch["text"]:
+            raise ValueError("Batch does not contain valid 'text' data")
+        if isinstance(batch["text"], str):
+            batch["text"] = [batch["text"]]  # Ensure it's a list
+        # print("Batch Input:", batch["text"])  # Debugging line
+        return tokenizer(batch["text"], truncation=True)
+
     def tokenize_dataset(AllTrainData):
-        tokenized_dataset = AllTrainData.map(preprocess_function, num_proc=1, batched=True, batch_size=5)
+        logger.info("AllTrainData.column_names is \n {}".format(AllTrainData.column_names)) 
+        # logger.info("AllTrainData[0] is \n {}".format(AllTrainData[0])) 
+        tokenized_dataset = AllTrainData.map(preprocess_function, num_proc=1, batched=True, batch_size=10)
         # tokenized_dataset.set_format('numpy', columns=['input_ids', 'attention_mask', 'labels']) # ['text', 'label', 'input_ids', 'attention_mask']
         return tokenized_dataset
 

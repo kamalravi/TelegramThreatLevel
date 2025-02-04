@@ -1,0 +1,7 @@
+  0%|▏                                                                                              | 96/66000 [12:38<29:40:48,  1.62s/it]
+  4%|████▏                                                                                               | 12/283 [00:04<01:53,  2.40it/s]
+{'eval_loss': 1.0732825994491577, 'eval_f1': 0.3091724586315928, 'eval_runtime': 118.398, 'eval_samples_per_second': 19.097, 'eval_steps_per_second': 2.39, 'epoch': 0.02}
+{'eval_loss': 0.9728784561157227, 'eval_f1': 0.7094269137060915, 'eval_runtime': 118.5478, 'eval_samples_per_second': 19.072, 'eval_steps_per_second': 2.387, 'epoch': 0.05}
+{'eval_loss': 0.5671026706695557, 'eval_f1': 0.791317239591839, 'eval_runtime': 118.3805, 'eval_samples_per_second': 19.099, 'eval_steps_per_second': 2.391, 'epoch': 0.07}
+{'eval_loss': 0.5311672687530518, 'eval_f1': 0.8213536529162044, 'eval_runtime': 118.6267, 'eval_samples_per_second': 19.06, 'eval_steps_per_second': 2.386, 'epoch': 0.1}
+{'eval_loss': 0.4167548418045044, 'eval_f1': 0.8502961644314598, 'eval_runtime': 118.392, 'eval_samples_per_second': 19.098, 'eval_steps_per_second': 2.39, 'epoch': 0.12}

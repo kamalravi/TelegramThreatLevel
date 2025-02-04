@@ -1,0 +1,60 @@
+{
+  "os": "Linux-5.15.0-131-generic-x86_64-with-glibc2.10",
+  "python": "CPython 3.8.12",
+  "startedAt": "2025-02-04T03:03:13.557424Z",
+  "program": "model/transformersFineTune.py",
+  "codePath": "model/transformersFineTune.py",
+  "git": {
+    "remote": "git@github.com:kamalravi/TelegramThreatLevel.git",
+    "commit": "5356b9615d696e52c0875c1d1e4998ea5963efe5"
+  },
+  "email": "rkk.bme@gmail.com",
+  "root": "/home/ravi/raviProject/CODE",
+  "host": "Lamdba2",
+  "executable": "/home/ravi/miniconda3/envs/transformers/bin/python",
+  "codePathLocal": "model/transformersFineTune.py",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce GTX 1080 Ti",
+  "gpu_count": 4,
+  "disk": {
+    "/": {
+      "total": "982819848192",
+      "used": "580531822592"
+    }
+  },
+  "memory": {
+    "total": "67330048000"
+  },
+  "cpu": {
+    "count": 6,
+    "countLogical": 12
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal": "11811160064",
+      "cudaCores": 3584,
+      "architecture": "Pascal"
+    },
+    {
+      "name": "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal": "11811160064",
+      "cudaCores": 3584,
+      "architecture": "Pascal"
+    },
+    {
+      "name": "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal": "11811160064",
+      "cudaCores": 3584,
+      "architecture": "Pascal"
+    },
+    {
+      "name": "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal": "11811160064",
+      "cudaCores": 3584,
+      "architecture": "Pascal"
+    }
+  ],
+  "cudaVersion": "12.2"
+}

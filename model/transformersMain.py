@@ -83,7 +83,8 @@ if __name__=="__main__":
         # inputs
         logger.info("Get inputs data")
         # Load data. Get K-Fold data. Save 5 fold indices (80% train, 20% test)
-        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/iter6_Labeled_7605_sampled_forNextIter.json", orient='records')
+        # all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/iter6_Labeled_7605_sampled_forNextIter.json", orient='records')
+        all_train_data = pd.read_json("/home/ravi/raviProject/DataModelsResults/Data/iter7_Labeled_15076_sampled_forNextIter_yPred_preTrainFT_RoBERTa_NoisyLabelsRelabeled.json", orient='records')
         # V1_Labeled_300_sampled.json
         # iter2_Labeled_600_sampled.json
         # all_train_data = all_train_data.drop(columns=['label'])

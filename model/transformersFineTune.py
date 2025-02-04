@@ -51,7 +51,7 @@ def getModelType(model_select):
 if __name__=="__main__":
 
     ## inputs
-    ite = 400
+    ite = 500 # 400 for PreTrain Again and FT with old data, 500 for with new NoiseRelabeled
 
     # Choose model
     model_select = "RoBERTa" # Options: RoBERTa, Longformer, OpenAIGPT2
@@ -64,8 +64,8 @@ if __name__=="__main__":
     # Choose
     model_tokenize=0
     TokenizeCombine=0
-    model_train=0
-    model_predict=1
+    model_train=1
+    model_predict=0
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test
@@ -103,9 +103,11 @@ if __name__=="__main__":
     elif model_tokenize: 
         # inputs
         logger.info("Get inputs data")
-        # Load data. 
-        train_df = pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_10554_train.json', orient='records')
-        validate_df=pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_dev.json', orient='records')      
+        # Load data. NoisyLabelsRelabeled
+        # train_df = pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_10554_train.json', orient='records')
+        # validate_df=pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_dev.json', orient='records')      
+        train_df = pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/NoisyLabelsRelabeled_10554_train.json', orient='records')
+        validate_df=pd.read_json('/home/ravi/raviProject/DATA/Annotate/iterData/NoisyLabelsRelabeled_2248_dev.json', orient='records')      
         # train_df = train_df.sample(frac=0.1, random_state=42)
         # validate_df = validate_df.sample(frac=0.1, random_state=42)  
         logger.info("train_df.shape {}".format(train_df.shape))
