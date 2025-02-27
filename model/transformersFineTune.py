@@ -64,8 +64,8 @@ if __name__=="__main__":
     # Choose
     model_tokenize=0
     TokenizeCombine=0
-    model_train=1
-    model_predict=0
+    model_train=0
+    model_predict=1
     
     # logger
     task = "_Tokenize_Train_Test_"+str(ite) # Train Test
@@ -146,7 +146,8 @@ if __name__=="__main__":
         
         # fileName = "/home/ravi/raviProject/DataModelsResults/Data/remaining_V7_1M_NotUsed.json" # holdout set
         # fileName = '/home/ravi/raviProject/DATA/Annotate/iterData/Labeled_2261_test.json'
-        fileName = "/home/ravi/raviProject/DATA/Annotate/iterData/iter7_Labeled_15076_sampled_forNextIter.json"
+        # fileName = "/home/ravi/raviProject/DATA/Annotate/iterData/iter7_Labeled_15076_sampled_forNextIter.json"
+        fileName = "/home/ravi/raviProject/DATA/Annotate/iterData/NoisyLabelsRelabeled_2261_test.json"
 
         test_data=pd.read_json(fileName, orient='records')   
         # test_data['openAI-classification'] = test_data['openAI-classification'].astype('int64')
