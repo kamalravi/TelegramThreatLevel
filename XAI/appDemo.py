@@ -72,34 +72,7 @@ if st.button("Predict"):
     st.write("### Predicted Label:", class_names[predicted_label])
 
     # Create three tabs for the XAI methods
-    tabs = st.tabs(["BertViz", "Captum", "LIME"])
-
-    # ======================================
-    # BertViz Tab: Interactive Head View
-    # ======================================
-    with tabs[0]:
-        st.header("BertViz: Interactive Attention")
-        with st.spinner("Loading BertViz explanation..."):
-            attentions = outputs.attentions  # Tuple of attention tensors
-            tokens = tokenizer.convert_ids_to_tokens(encoded['input_ids'][0])
-            hv = head_view(attentions, tokens)
-            if hv is not None and hasattr(hv, "_repr_html_"):
-                hv_html = hv._repr_html_()  # HTML representation
-                st.components.v1.html(hv_html, height=600, scrolling=True)
-            else:
-                st.write("Interactive BertViz visualization is not available. Displaying aggregated attention instead.")
-                final_layer_attn = outputs.attentions[-1][0]  # shape: [num_heads, seq_len, seq_len]
-                # Average over heads only, to obtain a 2D matrix.
-                avg_attn = final_layer_attn.mean(dim=0).cpu().detach().numpy()  # shape: (seq_len, seq_len)
-                tokens_clean = [token[1:] if token.startswith("Ġ") else token for token in tokens]
-                fig, ax = plt.subplots(figsize=(8, 6))
-                im = ax.imshow(avg_attn, cmap='viridis')
-                ax.set_xticks(np.arange(len(tokens_clean)))
-                ax.set_xticklabels(tokens_clean, rotation=90, fontsize=8)
-                ax.set_yticks(np.arange(len(tokens_clean)))
-                ax.set_yticklabels(tokens_clean, fontsize=8)
-                fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-                st.pyplot(fig)
+    tabs = st.tabs(["Captum: Integrated Gradients Explanation", "LIME: Local Interpretable Explanation", "BertViz: Aggregated Attention Explanation"])
 
     # ======================================
     # Captum Tab: Integrated Gradients Explanation
@@ -123,7 +96,7 @@ if st.button("Predict"):
         original_words = [w[1:] if w.startswith("Ġ") else w for w in words]
         return predictions, attributions, original_words, delta
 
-    with tabs[1]:
+    with tabs[0]:
         st.header("Captum: Integrated Gradients")
         with st.spinner("Computing Captum explanation..."):
             predictions, attributions, original_words, delta = compute_captum(text, target)
@@ -159,8 +132,39 @@ if st.button("Predict"):
         explanation = lime_explainer.explain_instance(text, predict_proba, labels=[target])
         return explanation.as_html()
 
-    with tabs[2]:
+    with tabs[1]:
         st.header("LIME: Feature Importance")
         with st.spinner("Computing LIME explanation..."):
             lime_html = compute_lime_html(text, target)
             st.components.v1.html(lime_html, height=600, scrolling=True)
+
+
+    # ======================================
+    # BertViz Tab: Interactive Head View
+    # ======================================
+    with tabs[2]:
+        st.header("BertViz Alternative: Token Importance")
+        with st.spinner("Computing token importance from aggregated attention..."):
+            # Use the final layer's attention: shape [num_heads, seq_len, seq_len]
+            final_layer_attn = outputs.attentions[-1][0]
+            # Average over heads to get a [seq_len, seq_len] matrix.
+            avg_attn = final_layer_attn.mean(dim=0)
+            # Compute a token importance score.
+            # One option is to sum the attention each token receives from all other tokens.
+            # (i.e., sum over columns) or average over rows.
+            token_importance = avg_attn.sum(dim=0).cpu().detach().numpy()  # shape: (seq_len,)
+            
+            # Clean tokens: remove RoBERTa's "Ġ" prefix.
+            tokens = tokenizer.convert_ids_to_tokens(encoded['input_ids'][0])
+            tokens_clean = [t[1:] if t.startswith("Ġ") else t for t in tokens]
+            
+            # Create a horizontal bar chart.
+            import matplotlib.pyplot as plt
+            fig, ax = plt.subplots(figsize=(10, 4))
+            ax.barh(range(len(tokens_clean)), token_importance, color='skyblue')
+            ax.set_yticks(range(len(tokens_clean)))
+            ax.set_yticklabels(tokens_clean, fontsize=12)
+            ax.invert_yaxis()  # highest importance at the top
+            ax.set_xlabel("Aggregated Attention Score", fontsize=12)
+            ax.set_title("Token Importance from Aggregated Attention", fontsize=14)
+            st.pyplot(fig)
