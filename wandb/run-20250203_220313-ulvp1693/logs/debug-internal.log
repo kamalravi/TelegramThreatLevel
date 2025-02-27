@@ -1,7 +1,0 @@
-{"time":"2025-02-03T22:03:13.562133353-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/home/ravi/raviProject/CODE/wandb/run-20250203_220313-ulvp1693/logs/debug-core.log"}
-{"time":"2025-02-03T22:03:13.672002688-05:00","level":"INFO","msg":"created new stream","id":"ulvp1693"}
-{"time":"2025-02-03T22:03:13.672056596-05:00","level":"INFO","msg":"stream: started","id":"ulvp1693"}
-{"time":"2025-02-03T22:03:13.672129122-05:00","level":"INFO","msg":"handler: started","stream_id":"ulvp1693"}
-{"time":"2025-02-03T22:03:13.672137542-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"ulvp1693"}
-{"time":"2025-02-03T22:03:13.672182827-05:00","level":"INFO","msg":"sender: started","stream_id":"ulvp1693"}
-{"time":"2025-02-03T22:03:13.975844604-05:00","level":"INFO","msg":"Starting system monitor"}
