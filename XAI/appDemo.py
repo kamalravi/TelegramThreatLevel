@@ -10,24 +10,17 @@ from lime.lime_text import LimeTextExplainer
 import transformers
 
 # ---------------------------
-# Custom CSS for bigger text box
+# Page Config and Custom CSS for Wider Layout and Bigger Text Box
 # ---------------------------
-st.markdown(
-    """
-    <style>
-    .big-text-area textarea {
-        font-size: 20px;
-        height: 150px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
+st.set_page_config(
+    page_title="USEnTEL: User Satisfaction and Experience in Threat Explainability Tool",
+    layout="wide"
 )
-
 # ---------------------------
 # Running Title
 # ---------------------------
 st.title("USEnTEL: User Satisfaction and Experience in Threat Explainability Tool")
+
 
 # ---------------------------
 # 1. Load Model, Tokenizer & Configurations
