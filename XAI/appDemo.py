@@ -3,11 +3,15 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
+from bertviz import head_view
 from captum.attr import LayerIntegratedGradients
 from captum.attr import visualization as viz
 from lime.lime_text import LimeTextExplainer
+import transformers
 
-# Page config
+# ---------------------------
+# Page Config
+# ---------------------------
 st.set_page_config(
     page_title="USEnTEL: User Satisfaction and Experience in Threat Explainability Tool",
     layout="wide"
@@ -28,69 +32,68 @@ def load_model():
 
 model, tokenizer, class_names, modelPATH = load_model()
 
-# Input Text
-st.markdown('<div class="big-text-area">', unsafe_allow_html=True)
+# ---------------------------
+# Input
+# ---------------------------
 default_text = "Go figure they are criminals lock them away for a very long time."
+st.markdown('<div class="big-text-area">', unsafe_allow_html=True)
 text = st.text_area("Enter a text for explanation:", default_text)
 st.markdown('</div>', unsafe_allow_html=True)
 
-@st.cache_data(show_spinner=False)
-def get_prediction(text):
-    encoded = tokenizer(text, return_tensors="pt", add_special_tokens=True)
-    outputs = model(**encoded)
-    logits = outputs.logits
-    predicted_label = torch.argmax(logits, dim=1).item()
-    return outputs, predicted_label, encoded
+# ---------------------------
+# Prediction
+# ---------------------------
+prediction_triggered = st.button("Predict")
 
-@st.cache_data(show_spinner=False)
-def compute_captum(text, target):
-    encoded_captum = tokenizer(text, return_tensors="pt", add_special_tokens=True)
-    def predict(inputs, attention_mask=None):
-        return model(inputs, attention_mask=attention_mask).logits
-    predictions = predict(encoded_captum['input_ids'], encoded_captum['attention_mask'])
-    lig = LayerIntegratedGradients(predict, model.roberta.embeddings)
-    attributions, delta = lig.attribute(
-        inputs=encoded_captum['input_ids'],
-        target=torch.tensor([target]),
-        additional_forward_args=encoded_captum['attention_mask'],
-        return_convergence_delta=True
-    )
-    attributions = attributions.sum(dim=-1).squeeze().detach().numpy()
-    attributions = attributions / np.linalg.norm(attributions)
-    words = tokenizer.convert_ids_to_tokens(encoded_captum['input_ids'][0])
-    original_words = [w[1:] if w.startswith("Ġ") else w for w in words]
-    return predictions, attributions, original_words, delta
+if prediction_triggered:
+    st.write("### Input Text")
+    st.write(text)
 
-@st.cache_data(show_spinner=False)
-def compute_lime_html(text, target):
-    def predict_proba(texts):
-        inputs = tokenizer(texts, return_tensors='pt', padding=True, truncation=True)
-        device = next(model.parameters()).device
-        inputs = {k: v.to(device) for k, v in inputs.items()}
-        with torch.no_grad():
-            outputs = model(**inputs)
+    @st.cache_data(show_spinner=False)
+    def get_prediction(text):
+        encoded = tokenizer(text, return_tensors="pt", add_special_tokens=True)
+        outputs = model(**encoded)
         logits = outputs.logits
-        probs = torch.softmax(logits, dim=1).cpu().numpy()
-        return probs
-    lime_explainer = LimeTextExplainer(class_names=class_names)
-    explanation = lime_explainer.explain_instance(text, predict_proba, labels=[target])
-    return explanation.as_html()
+        predicted_label = torch.argmax(logits, dim=1).item()
+        return outputs, predicted_label, encoded
 
-# Prediction and Tabs
-if st.button("Predict"):
     with st.spinner("Computing model prediction..."):
         outputs, predicted_label, encoded = get_prediction(text)
-        st.session_state['prediction_result'] = (outputs, predicted_label, encoded, text)
 
-if 'prediction_result' in st.session_state:
-    outputs, predicted_label, encoded, text = st.session_state['prediction_result']
     target = predicted_label
     st.write("### Predicted Label:", class_names[predicted_label])
 
-    selected_tab = st.radio("Select Explanation Method", ["Captum", "LIME", "BertViz"], horizontal=True)
+show_xai = st.checkbox("Show XAI Options")
 
-    if selected_tab == "Captum":
+if show_xai:
+    xai_option = st.radio(
+        "Select an explanation method:",
+        ["Captum: Integrated Gradients", "LIME: Local Interpretable Explanation", "BertViz: Aggregated Attention"],
+        index=None,
+        key="xai_choice"
+    )
+
+    if prediction_triggered and xai_option == "Captum: Integrated Gradients":
         st.header("Captum: Integrated Gradients")
+        @st.cache_data(show_spinner=False)
+        def compute_captum(text, target):
+            encoded_captum = tokenizer(text, return_tensors="pt", add_special_tokens=True)
+            def predict(inputs, attention_mask=None):
+                return model(inputs, attention_mask=attention_mask).logits
+            predictions = predict(encoded_captum['input_ids'], encoded_captum['attention_mask'])
+            lig = LayerIntegratedGradients(predict, model.roberta.embeddings)
+            attributions, delta = lig.attribute(
+                inputs=encoded_captum['input_ids'],
+                target=torch.tensor([target]),
+                additional_forward_args=encoded_captum['attention_mask'],
+                return_convergence_delta=True
+            )
+            attributions = attributions.sum(dim=-1).squeeze().detach().numpy()
+            attributions = attributions / np.linalg.norm(attributions)
+            words = tokenizer.convert_ids_to_tokens(encoded_captum['input_ids'][0])
+            original_words = [w[1:] if w.startswith("Ġ") else w for w in words]
+            return predictions, attributions, original_words, delta
+
         with st.spinner("Computing Captum explanation..."):
             predictions, attributions, original_words, delta = compute_captum(text, target)
             result = viz.VisualizationDataRecord(
@@ -104,15 +107,31 @@ if 'prediction_result' in st.session_state:
                 delta
             )
             captum_vis = viz.visualize_text([result])
-            st.components.v1.html(captum_vis._repr_html_(), height=400, scrolling=True)
+            captum_html = captum_vis._repr_html_()
+            st.components.v1.html(captum_html, height=400, scrolling=True)
 
-    elif selected_tab == "LIME":
+    elif prediction_triggered and xai_option == "LIME: Local Interpretable Explanation":
         st.header("LIME: Feature Importance")
+        @st.cache_data(show_spinner=False)
+        def compute_lime_html(text, target):
+            def predict_proba(texts):
+                inputs = tokenizer(texts, return_tensors='pt', padding=True, truncation=True)
+                device = next(model.parameters()).device
+                inputs = {k: v.to(device) for k, v in inputs.items()}
+                with torch.no_grad():
+                    outputs = model(**inputs)
+                logits = outputs.logits
+                probs = torch.softmax(logits, dim=1).cpu().numpy()
+                return probs
+            lime_explainer = LimeTextExplainer(class_names=class_names)
+            explanation = lime_explainer.explain_instance(text, predict_proba, labels=[target])
+            return explanation.as_html()
+
         with st.spinner("Computing LIME explanation..."):
             lime_html = compute_lime_html(text, target)
-            st.components.v1.html(lime_html, height=650, scrolling=True)
+            st.components.v1.html(lime_html, height=600, scrolling=True)
 
-    elif selected_tab == "BertViz":
+    elif prediction_triggered and xai_option == "BertViz: Aggregated Attention":
         st.header("BertViz Alternative: Token Importance")
         with st.spinner("Computing token importance from aggregated attention..."):
             final_layer_attn = outputs.attentions[-1][0]
