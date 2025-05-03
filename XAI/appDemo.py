@@ -8,6 +8,8 @@ from captum.attr import LayerIntegratedGradients
 from captum.attr import visualization as viz
 from lime.lime_text import LimeTextExplainer
 import transformers
+import time
+import pandas as pd
 
 # ---------------------------
 # Page Config
@@ -33,6 +35,14 @@ def load_model():
 model, tokenizer, class_names, modelPATH = load_model()
 
 # ---------------------------
+# Session state init
+# ---------------------------
+if "start_time" not in st.session_state:
+    st.session_state.start_time = None
+if "timings" not in st.session_state:
+    st.session_state.timings = []
+
+# ---------------------------
 # Input Dropdown
 # ---------------------------
 sample_messages = [
@@ -45,8 +55,12 @@ sample_messages = [
     "If the Military doesn't do something I may not be able to control myself."
 ]
 
-text = st.selectbox("Select a message for explanation:", sample_messages, index=0)
+if st.button("Start Timer"):
+    st.session_state.start_time = time.time()
+    st.success("Timer started. Now begin your task.")
 
+text = st.selectbox("Select a message for explanation:", sample_messages, index=0)
+st.session_state.selected_text = text
 
 # ---------------------------
 # Prediction Trigger and State
@@ -74,6 +88,7 @@ if st.button("Predict") or st.session_state.predicted:
     st.write("### Predicted Label:", class_names[predicted_label])
 
     show_xai = st.checkbox("Show XAI Options")
+    st.session_state.show_xai = show_xai
 
     if show_xai:
         xai_option = st.radio(
@@ -83,7 +98,7 @@ if st.button("Predict") or st.session_state.predicted:
             key="xai_choice"
         )
 
-        if xai_option == "XAI Method 1": #Captum: Integrated Gradients
+        if xai_option == "XAI Method 1":  # Captum: Integrated Gradients
             st.header("XAI Method 1")
             @st.cache_data(show_spinner=False)
             def compute_captum(text, target):
@@ -157,3 +172,30 @@ if st.button("Predict") or st.session_state.predicted:
                 ax.set_xlabel("Aggregated Attention Score", fontsize=12)
                 ax.set_title("Token Importance from Aggregated Attention", fontsize=14)
                 st.pyplot(fig)
+
+        # End timer and save duration
+        if st.button("End Timer"):
+            end_time = time.time()
+            duration = round(end_time - st.session_state.start_time, 2)
+            st.session_state.timings.append({
+                "Message": st.session_state.selected_text,
+                "Duration (s)": duration
+            })
+            st.success(f"Time recorded for: {st.session_state.selected_text} - {duration} seconds")
+            
+            # Reset session state except timings
+            for key in ["predicted", "xai_choice", "show_xai", "start_time"]:
+                if key in st.session_state:
+                    del st.session_state[key]
+            try:
+                st.rerun()
+            except AttributeError:
+                st.experimental_rerun()
+
+
+# Option to export all timing data
+if st.button("Export Timing CSV"):
+    fname = "/home/ravi/raviProject/CODE/XAI/timings_output.csv"
+    df = pd.DataFrame(st.session_state.timings)
+    df.to_csv(fname, index=False)
+    st.success(f"Timing data exported to {fname}")
