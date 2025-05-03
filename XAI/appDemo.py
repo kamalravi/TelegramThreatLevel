@@ -33,12 +33,20 @@ def load_model():
 model, tokenizer, class_names, modelPATH = load_model()
 
 # ---------------------------
-# Input
+# Input Dropdown
 # ---------------------------
-default_text = "Go figure they are criminals lock them away for a very long time."
-st.markdown('<div class="big-text-area">', unsafe_allow_html=True)
-text = st.text_area("Enter a text for explanation:", default_text)
-st.markdown('</div>', unsafe_allow_html=True)
+sample_messages = [
+    "Sample: Go figure they are criminals lock them away for a very long time.",
+    "No Shirt No Shoes No Service",
+    "Sending you and your family many thoughts and prayers. God bless!",
+    "So then can we now sue them for all the  stress they’ve given",
+    "They need to be slapped with the constitution and thrown in jail",
+    "“Wood Chipper” Death Penalty for everyone involved.",
+    "If the Military doesn't do something I may not be able to control myself."
+]
+
+text = st.selectbox("Select a message for explanation:", sample_messages, index=0)
+
 
 # ---------------------------
 # Prediction Trigger and State
@@ -70,13 +78,13 @@ if st.button("Predict") or st.session_state.predicted:
     if show_xai:
         xai_option = st.radio(
             "Select an explanation method:",
-            ["Captum: Integrated Gradients", "LIME: Local Interpretable Explanation", "BertViz: Aggregated Attention"],
+            ["XAI Method 1", "XAI Method 2", "XAI Method 3"],
             index=None,
             key="xai_choice"
         )
 
-        if xai_option == "Captum: Integrated Gradients":
-            st.header("Captum: Integrated Gradients")
+        if xai_option == "XAI Method 1": #Captum: Integrated Gradients
+            st.header("XAI Method 1")
             @st.cache_data(show_spinner=False)
             def compute_captum(text, target):
                 encoded_captum = tokenizer(text, return_tensors="pt", add_special_tokens=True)
@@ -96,7 +104,7 @@ if st.button("Predict") or st.session_state.predicted:
                 original_words = [w[1:] if w.startswith("Ġ") else w for w in words]
                 return predictions, attributions, original_words, delta
 
-            with st.spinner("Computing Captum explanation..."):
+            with st.spinner("Computing explanation..."):
                 predictions, attributions, original_words, delta = compute_captum(text, target)
                 result = viz.VisualizationDataRecord(
                     attributions,
@@ -112,8 +120,8 @@ if st.button("Predict") or st.session_state.predicted:
                 captum_html = captum_vis._repr_html_()
                 st.components.v1.html(captum_html, height=400, scrolling=True)
 
-        elif xai_option == "LIME: Local Interpretable Explanation":
-            st.header("LIME: Feature Importance")
+        elif xai_option == "XAI Method 2":
+            st.header("XAI Method 2")
             @st.cache_data(show_spinner=False)
             def compute_lime_html(text, target):
                 def predict_proba(texts):
@@ -129,13 +137,13 @@ if st.button("Predict") or st.session_state.predicted:
                 explanation = lime_explainer.explain_instance(text, predict_proba, labels=[target])
                 return explanation.as_html()
 
-            with st.spinner("Computing LIME explanation..."):
+            with st.spinner("Computing explanation..."):
                 lime_html = compute_lime_html(text, target)
                 st.components.v1.html(lime_html, height=600, scrolling=True)
 
-        elif xai_option == "BertViz: Aggregated Attention":
-            st.header("BertViz Alternative: Token Importance")
-            with st.spinner("Computing token importance from aggregated attention..."):
+        elif xai_option == "XAI Method 3":
+            st.header("XAI Method 3")
+            with st.spinner("Computing explanation..."):
                 final_layer_attn = outputs.attentions[-1][0]
                 avg_attn = final_layer_attn.mean(dim=0)
                 token_importance = avg_attn.sum(dim=0).cpu().detach().numpy()
