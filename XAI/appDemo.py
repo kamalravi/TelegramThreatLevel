@@ -23,7 +23,7 @@ st.title("USEnTEL: User Satisfaction and Experience in Threat Explainability Too
 
 @st.cache_resource(show_spinner=False)
 def load_model():
-    modelPATH = "/home/ravi/raviProject/DataModelsResults/Results/PreTrainAgain_FineTune_RoBERTa_400/preTrainedModel/CustomPreTrainedClassifier"
+    modelPATH = "/home/ka075671/raviProject/DataModelsResults/Results/PreTrainAgain_FineTune_RoBERTa_400/preTrainedModel/CustomPreTrainedClassifier"
     tokenizer = RobertaTokenizer.from_pretrained(modelPATH)
     model = RobertaForSequenceClassification.from_pretrained(
         modelPATH, num_labels=3, output_attentions=True
@@ -195,7 +195,7 @@ if st.button("Predict") or st.session_state.predicted:
 
 # Option to export all timing data
 if st.button("Export Timing CSV"):
-    fname = "/home/ravi/raviProject/CODE/XAI/timings_output.csv"
+    fname = "/home/ka075671/raviProject/CODE/XAI/timings_output.csv"
     df = pd.DataFrame(st.session_state.timings)
     df.to_csv(fname, index=False)
     st.success(f"Timing data exported to {fname}")
