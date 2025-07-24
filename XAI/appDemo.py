@@ -15,11 +15,81 @@ import pandas as pd
 # Page Config
 # ---------------------------
 st.set_page_config(
-    page_title="USEnTEL: User Satisfaction and Experience in Threat Explainability Tool",
+    page_title="Total Freedom Interface",
     layout="wide"
 )
 
-st.title("USEnTEL: User Satisfaction and Experience in Threat Explainability Tool")
+# Dark mode toggle
+dark_mode = st.sidebar.toggle("🌙 Enable Dark Mode", value=False)
+
+# Inject Google Fonts and dynamic CSS
+font_link = """
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+"""
+st.markdown(font_link, unsafe_allow_html=True)
+
+# Define dynamic style based on dark mode toggle
+custom_style = f"""
+<style>
+body {{
+    background-color: {"#121212" if dark_mode else "#f0f2f5"};
+    font-family: 'Poppins', sans-serif;
+}}
+
+div[data-testid="stAppViewContainer"] > .main {{
+    background-color: {"#1e1e1e" if dark_mode else "#ffffff"};
+    border: 2px solid {"#333" if dark_mode else "#dee2e6"};
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-width: 1100px;
+}}
+
+.stButton>button {{
+    background-color: {"#bb86fc" if dark_mode else "#4a90e2"};
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: bold;
+}}
+.stButton>button:hover {{
+    background-color: {"#9d6cfb" if dark_mode else "#3b7dd8"};
+}}
+
+.stSelectbox, .stRadio, .stCheckbox {{
+    background-color: {"#2a2a2a" if dark_mode else "#ffffff"};
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+}}
+
+h1, h2, h3 {{
+    color: {"#e0e0e0" if dark_mode else "#2c3e50"};
+    font-weight: 600;
+}}
+
+.stAlert.success {{
+    background-color: {"#294436" if dark_mode else "#d1f0db"};
+    color: {"#c2fbd7" if dark_mode else "#1a5d38"};
+}}
+
+::-webkit-scrollbar {{
+    width: 8px;
+}}
+::-webkit-scrollbar-thumb {{
+    background: #888;
+    border-radius: 4px;
+}}
+</style>
+"""
+st.markdown(custom_style, unsafe_allow_html=True)
+
+st.title("Total Freedom Interface")
+
+st.markdown("---")
 
 @st.cache_resource(show_spinner=False)
 def load_model():
@@ -42,6 +112,7 @@ if "start_time" not in st.session_state:
 if "timings" not in st.session_state:
     st.session_state.timings = []
 
+
 # ---------------------------
 # Input Dropdown
 # ---------------------------
@@ -55,12 +126,17 @@ sample_messages = [
     "If the Military doesn't do something I may not be able to control myself."
 ]
 
+
 if st.button("Start Timer"):
     st.session_state.start_time = time.time()
     st.success("Timer started. Now begin your task.")
 
 text = st.selectbox("Select a message for explanation:", sample_messages, index=0)
 st.session_state.selected_text = text
+
+
+st.markdown("---")
+
 
 # ---------------------------
 # Prediction Trigger and State
@@ -133,7 +209,7 @@ if st.button("Predict") or st.session_state.predicted:
                 )
                 captum_vis = viz.visualize_text([result])
                 captum_html = captum_vis._repr_html_()
-                st.components.v1.html(captum_html, height=400, scrolling=True)
+                st.components.v1.html(captum_html, height=150, scrolling=True)
 
         elif xai_option == "XAI Method 2":
             st.header("XAI Method 2")
@@ -154,7 +230,7 @@ if st.button("Predict") or st.session_state.predicted:
 
             with st.spinner("Computing explanation..."):
                 lime_html = compute_lime_html(text, target)
-                st.components.v1.html(lime_html, height=600, scrolling=True)
+                st.components.v1.html(lime_html, height=300, scrolling=True)
 
         elif xai_option == "XAI Method 3":
             st.header("XAI Method 3")
@@ -192,6 +268,8 @@ if st.button("Predict") or st.session_state.predicted:
             except AttributeError:
                 st.experimental_rerun()
 
+
+st.markdown("---")
 
 # Option to export all timing data
 if st.button("Export Timing CSV"):
