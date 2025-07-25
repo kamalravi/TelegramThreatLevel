@@ -85,6 +85,32 @@ h1, h2, h3 {{
 }}
 </style>
 """
+
+css_update = """
+<style>
+/* Increase font size for all core UI text */
+html, body, [class*="css"] {
+    font-size: 1.3rem !important;
+}
+
+/* Buttons */
+.stButton > button {
+    font-size: 1.5rem !important;
+    padding: 12px 20px !important;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* Inputs: Selectbox, Radio, Checkbox */
+.stSelectbox label, .stRadio label, .stCheckbox label,
+.stSelectbox div[data-baseweb="select"] div,
+.stRadio div[data-baseweb="radio"] div,
+.stCheckbox div[data-baseweb="checkbox"] div {
+    font-size: 1.3rem !important;
+}
+</style>
+"""
+
 st.markdown(custom_style, unsafe_allow_html=True)
 
 st.title("Total Freedom Interface")
@@ -161,10 +187,26 @@ if st.button("Predict") or st.session_state.predicted:
         outputs, predicted_label, encoded = get_prediction(text)
 
     target = predicted_label
-    st.write("### Predicted Label:", class_names[predicted_label])
+
+    label_colors = {
+        "No Threat": "#4a90e2",
+        "Judicial Threat": "#e74c3c",
+        "Non-Judicial Threat": "#f39c12"
+    }
+    color = label_colors[class_names[predicted_label]]
+
+    st.markdown(f"### Predicted Label: <span style='color:{color}; font-weight:bold'>{class_names[predicted_label]}</span>", unsafe_allow_html=True)
+    # st.write("### Predicted Label:", class_names[predicted_label])
+
+    
+    st.markdown("---")
+
+
+    st.write("##### ➡️ Now Select XAI Options and choose one method at a time.")
 
     show_xai = st.checkbox("Show XAI Options")
     st.session_state.show_xai = show_xai
+
 
     if show_xai:
         xai_option = st.radio(
@@ -249,6 +291,9 @@ if st.button("Predict") or st.session_state.predicted:
                 ax.set_title("Token Importance from Aggregated Attention", fontsize=14)
                 st.pyplot(fig)
 
+        st.write("##### ➡️ Now Click: End Timer")
+
+
         # End timer and save duration
         if st.button("End Timer"):
             end_time = time.time()
@@ -267,6 +312,7 @@ if st.button("Predict") or st.session_state.predicted:
                 st.rerun()
             except AttributeError:
                 st.experimental_rerun()
+
 
 
 st.markdown("---")
