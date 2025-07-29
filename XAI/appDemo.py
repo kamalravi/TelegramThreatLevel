@@ -251,7 +251,7 @@ if st.button("Predict") or st.session_state.predicted:
                 )
                 captum_vis = viz.visualize_text([result])
                 captum_html = captum_vis._repr_html_()
-                st.components.v1.html(captum_html, height=150, scrolling=True)
+                st.components.v1.html(captum_html, height=200, scrolling=True)
 
         elif xai_option == "XAI Method 2":
             st.header("XAI Method 2")
